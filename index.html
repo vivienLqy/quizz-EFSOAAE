@@ -1,0 +1,2412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EFSOAA — Quiz d'entraînement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2140;
+  --navy-2:#16305a;
+  --steel:#5a6c85;
+  --paper:#f3efe4;
+  --paper-2:#ece5d3;
+  --card:#fffdf8;
+  --ink:#1c1c1c;
+  --gold:#b98a2f;
+  --gold-light:#e8c877;
+  --good:#2e7d4f;
+  --good-bg:#e5f3ea;
+  --bad:#b3413a;
+  --bad-bg:#fbe9e7;
+  --line:#d8cfb8;
+  --radius:10px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Source Sans 3', system-ui, sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+}
+::selection{ background:var(--gold-light); }
+
+header.topbar{
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color:#f3efe4;
+  padding:22px 28px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  border-bottom:4px solid var(--gold);
+}
+.roundel{
+  width:52px;height:52px;border-radius:50%;
+  flex-shrink:0;
+  background:conic-gradient(from 0deg, #16305a 0deg 120deg, #f3efe4 120deg 240deg, #9c1f28 240deg 360deg);
+  border:2px solid var(--gold);
+  position:relative;
+}
+.roundel::after{
+  content:"";
+  position:absolute; inset:16px;
+  border-radius:50%;
+  background:var(--navy);
+  border:1px solid var(--gold-light);
+}
+header.topbar h1{
+  font-family:'Oswald', sans-serif;
+  font-weight:600;
+  letter-spacing:1.5px;
+  font-size:22px;
+  margin:0;
+  text-transform:uppercase;
+}
+header.topbar p{
+  margin:2px 0 0;
+  font-size:13px;
+  color:#c9d2e0;
+  letter-spacing:.3px;
+}
+
+/* ---------- TAB BAR ---------- */
+.tabbar-wrap{
+  background:var(--paper-2);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.tabbar{
+  display:flex;
+  gap:6px;
+  max-width:800px;
+  margin:0 auto;
+  padding:10px 20px 0;
+  overflow-x:auto;
+}
+.tab{
+  font-family:'Oswald', sans-serif;
+  letter-spacing:.5px;
+  font-size:13.5px;
+  background:none;
+  border:none;
+  border-bottom:3px solid transparent;
+  padding:10px 18px;
+  cursor:pointer;
+  color:var(--steel);
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:color .12s ease, border-color .12s ease;
+}
+.tab:hover{ color:var(--navy); }
+.tab.active{
+  color:var(--navy);
+  border-color:var(--gold);
+  font-weight:600;
+}
+.tab .tab-score{
+  font-size:11px;
+  font-family:'Source Sans 3', sans-serif;
+  background:var(--gold-light);
+  color:var(--navy);
+  padding:1px 7px;
+  border-radius:10px;
+  font-weight:600;
+}
+
+main.content{
+  padding:30px 20px 70px;
+  max-width:800px;
+  margin:0 auto;
+}
+
+.quiz-title{
+  font-family:'Oswald', sans-serif;
+  font-size:26px;
+  font-weight:600;
+  color:var(--navy);
+  margin:0 0 4px;
+}
+.quiz-sub{
+  color:var(--steel);
+  font-size:13.5px;
+  margin:0 0 10px;
+}
+.section-heading{
+  font-family:'Oswald', sans-serif;
+  font-size:14px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:#fff;
+  background:var(--navy);
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:5px;
+  margin:26px 0 14px;
+}
+
+.qcard{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px 18px;
+  margin-bottom:14px;
+  box-shadow:0 1px 3px rgba(20,20,10,.05);
+}
+.qcard .qmeta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:8px;
+}
+.qcard .qnum{
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  color:var(--navy);
+  font-size:14px;
+}
+.tag-group{ display:flex; gap:6px; flex-wrap:wrap; }
+.tag{
+  font-size:10.5px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  font-weight:600;
+  padding:3px 9px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.tag.true{ background:#e4ecf7; color:#2c4a80; }
+.tag.false{ background:#f7e6d8; color:#93481a; }
+.tag.module{ background:#ede6d3; color:#6b5a2f; border:1px solid var(--line); }
+
+.qcard .stem{
+  font-weight:600;
+  margin:0 0 10px;
+  font-size:15px;
+  color:var(--ink);
+}
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:9px 11px;
+  border-radius:7px;
+  border:1px solid transparent;
+  cursor:pointer;
+  margin-bottom:5px;
+  transition:background .12s ease, border-color .12s ease;
+  font-size:14px;
+  line-height:1.4;
+}
+.option:hover{ background:#f2ecdd; }
+.option input{ margin-top:3px; accent-color:var(--navy); flex-shrink:0; }
+.option.correct{ background:var(--good-bg); border-color:var(--good); }
+.option.incorrect{ background:var(--bad-bg); border-color:var(--bad); }
+.option .letter{ font-weight:700; color:var(--steel); width:16px; flex-shrink:0; }
+.option.correct .letter{ color:var(--good); }
+.option.incorrect .letter{ color:var(--bad); }
+.option.locked{ cursor:default; }
+
+.qcr-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px 18px;
+  margin-bottom:12px;
+}
+.qcr-card .qmeta{ margin-bottom:8px; }
+.qcr-card .stem{ font-weight:600; margin:0 0 8px; font-size:14.5px; }
+.qcr-card textarea{
+  width:100%;
+  min-height:52px;
+  border:1px solid var(--line);
+  border-radius:7px;
+  padding:8px 10px;
+  font-family:inherit;
+  font-size:13.5px;
+  resize:vertical;
+  background:#fffef9;
+}
+.qcr-card .reveal-btn{
+  margin-top:8px;
+  background:none;
+  border:1px solid var(--steel);
+  color:var(--steel);
+  border-radius:20px;
+  font-size:12px;
+  padding:5px 12px;
+  cursor:pointer;
+  font-family:inherit;
+}
+.qcr-card .reveal-btn:hover{ background:var(--steel); color:#fff; }
+.qcr-card .answer{
+  display:none;
+  margin-top:10px;
+  background:var(--good-bg);
+  border-left:3px solid var(--good);
+  padding:8px 12px;
+  border-radius:0 6px 6px 0;
+  font-size:13.5px;
+}
+.qcr-card .answer.show{ display:block; }
+
+.action-bar{
+  position:sticky;
+  bottom:0;
+  background:linear-gradient(to top, var(--paper) 70%, transparent);
+  padding:16px 0 8px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+button.primary{
+  font-family:'Oswald',sans-serif;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  background:var(--navy);
+  color:#fff;
+  border:none;
+  padding:12px 22px;
+  border-radius:8px;
+  font-size:13px;
+  cursor:pointer;
+  box-shadow:0 2px 6px rgba(15,33,64,.3);
+}
+button.primary:hover{ background:var(--navy-2); }
+button.ghost{
+  font-family:'Oswald',sans-serif;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  background:none;
+  color:var(--navy);
+  border:1px solid var(--navy);
+  padding:11px 18px;
+  border-radius:8px;
+  font-size:13px;
+  cursor:pointer;
+}
+button.ghost:hover{ background:var(--navy); color:#fff; }
+.score-pill{
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  font-size:15px;
+  padding:9px 16px;
+  border-radius:20px;
+  background:var(--gold-light);
+  color:var(--navy);
+  display:none;
+}
+.score-pill.show{ display:inline-block; }
+
+footer.pagefoot{
+  text-align:center;
+  color:var(--steel);
+  font-size:12px;
+  padding:18px;
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="roundel"></div>
+  <div>
+    <h1>EFSOAA — Quiz d'entraînement</h1>
+    <p>Plusieurs quiz mélangeant tous les modules · 12 QCM + 8 QCR chacun</p>
+  </div>
+</header>
+
+<div class="tabbar-wrap">
+  <div class="tabbar" id="tabbar"></div>
+</div>
+
+<main class="content" id="content"></main>
+
+<footer class="pagefoot">Un vrai test de révision : réponds à tout avant de corriger !</footer>
+
+<script>
+const QUIZZES = [
+  {
+    "title": "Quiz 1",
+    "qcm": [
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Il est joué en continu pendant tout le défilé.",
+          "Il est joué uniquement lorsque les troupes rendent les honneurs de pied ferme.",
+          "Il n'est jamais joué lors d'une prise d'armes.",
+          "Il est joué uniquement pendant la revue."
+        ],
+        "correct": 1,
+        "stem": "Dans quelles conditions l'hymne national est-il joué lors d'une prise d'armes ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Uniquement les officiers généraux.",
+          "Chefs/camarades décédés en activité, dignitaires de la Légion d'Honneur, compagnons de la Libération, dignitaires de l'ONM, hautes personnalités civiles.",
+          "Uniquement les personnalités civiles.",
+          "Uniquement les militaires du rang."
+        ],
+        "correct": 1,
+        "stem": "Quelles catégories de personnes sont concernées par les honneurs funèbres ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "false",
+        "options": [
+          "Les prises d'armes consistent généralement en une revue des troupes suivie d'un défilé.",
+          "La revue s'effectue dans le sens des aiguilles d'une montre.",
+          "La revue ne peut être accomplie que par l'autorité militaire.",
+          "Passer les troupes en revue est un acte de commandement."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Oui, systématiquement.",
+          "Non, elle est rédigée sans formule de politesse.",
+          "Seulement pour les officiers supérieurs.",
+          "Seulement dans les comptes rendus."
+        ],
+        "correct": 1,
+        "stem": "La correspondance militaire comporte-t-elle une formule de politesse ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Ambition, rigueur, autorité, discrétion, courage.",
+          "Esprit de sacrifice, discipline, disponibilité, loyalisme, neutralité.",
+          "Obéissance, fidélité, honneur, force, gloire.",
+          "Discipline, hiérarchie, uniforme, grade, solde."
+        ],
+        "correct": 1,
+        "stem": "Quels sont les 5 principes fondamentaux liés à l'état militaire ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Attaque, défense, repli, alliance, veille.",
+          "Connaissance et anticipation, prévention, protection, intervention, dissuasion.",
+          "Renseignement, sécurité, ordre, discipline, loyauté.",
+          "Prévention, répression, coopération, alliance, neutralité."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les 5 fonctions stratégiques de la défense ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Il commande directement les bases aériennes.",
+          "Il conseille et assiste le CEMA au titre de l'expertise propre à son armée.",
+          "Il gère uniquement les ressources humaines.",
+          "Il dirige le ministère des Armées."
+        ],
+        "correct": 1,
+        "stem": "Quel est le rôle du CEMAAE ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "false",
+        "options": [
+          "Les honneurs militaires sont des démonstrations extérieures d'hommage.",
+          "Ils concernent les forces armées et les formations rattachées.",
+          "Ils ne concernent que les militaires vivants.",
+          "Ils s'adressent aux personnes et symboles qui y ont droit."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Sanctionner les militaires.",
+          "Autoriser l'accès à des informations classifiées selon le besoin d'en connaître.",
+          "Attribuer un grade.",
+          "Valider une mutation."
+        ],
+        "correct": 1,
+        "stem": "Quel est le but de la procédure d'habilitation ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Chaleur, fumée, flamme.",
+          "Combustible, comburant, énergie d'activation.",
+          "Oxygène, eau, carbone.",
+          "Bois, essence, gaz."
+        ],
+        "correct": 1,
+        "stem": "Quels sont les 3 éléments du triangle du feu ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Le préventionniste incendie.",
+          "Le commandant de base.",
+          "L'ESIS.",
+          "Le CDU."
+        ],
+        "correct": 1,
+        "stem": "Qui est responsable global de la sécurité incendie de la base ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Officier subalterne.",
+          "Une catégorie à part, entre les sous-officiers et les officiers.",
+          "Sous-officier subalterne.",
+          "Officier supérieur."
+        ],
+        "correct": 1,
+        "stem": "À quelle catégorie appartient le grade de Major ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Les prises d'armes",
+        "q": "Que consistent généralement les prises d'armes ?",
+        "a": "Une revue des troupes suivie d'un défilé."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Que sont les honneurs militaires ?",
+        "a": "Des démonstrations extérieures par lesquelles les forces armées présentent un hommage spécial aux personnes/symboles qui y ont droit."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Sur quel type de support (couleur/format) s'effectue la correspondance militaire ?",
+        "a": "Papier blanc uni A3 ou A4."
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "Que définit le statut général des militaires ?",
+        "a": "L'ensemble des règles et des droits auxquels sont soumis les militaires (garanties, droits, libertés, obligations)."
+      },
+      {
+        "module": "Défense nationale",
+        "q": "Quel est le but de la défense nationale ?",
+        "a": "Assurer en tout temps la sécurité/intégrité du territoire et la vie de la population."
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "q": "Que conseille et assiste le CEMAAE ?",
+        "a": "Le CEMA, au titre de l'expertise propre à l'armée de l'Air et de l'Espace."
+      },
+      {
+        "module": "Protection des documents",
+        "q": "Pourquoi les militaires sont-ils des objectifs potentiels pour des tiers ?",
+        "a": "De par leurs fonctions, ils peuvent être ciblés par des services étrangers, des groupements divers ou des individus isolés exploitant leurs relations."
+      },
+      {
+        "module": "Généralités sur les feux",
+        "q": "Donnez la définition du feu.",
+        "a": "Réaction chimique exothermique entre l'oxygène (comburant) et une substance (combustible) sous l'action d'une énergie d'activation."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 2",
+    "qcm": [
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": 2,
+        "stem": "Combien de chevrons porte le Caporal-chef ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "De la droite vers la gauche.",
+          "De la gauche vers la droite.",
+          "Du centre vers l'extérieur.",
+          "Aucun sens n'est imposé."
+        ],
+        "correct": 1,
+        "stem": "Dans quel sens s'effectue la remise de décorations, face aux récipiendaires ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "false",
+        "options": [
+          "La correspondance militaire s'effectue sur papier blanc uni A3 ou A4.",
+          "Elle s'effectue à l'encre noire.",
+          "Elle peut comporter des ratures si elles sont signées.",
+          "Elle respecte l'unité d'objet."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Continuer son activité normalement.",
+          "Cesser son activité, faire face au mât, saluer et adopter une attitude respectueuse.",
+          "Se mettre à l'abri.",
+          "Rien de particulier n'est prévu."
+        ],
+        "correct": 1,
+        "stem": "Que doit faire un militaire témoin de la cérémonie du pavillon national ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Grade et fonction.",
+          "Noms, prénoms, 1ère lettre du destinataire/expéditeur, noms de lieux, points cardinaux.",
+          "Uniquement les noms propres de personnes.",
+          "Aucune majuscule n'est imposée."
+        ],
+        "correct": 1,
+        "stem": "Quelles majuscules sont exigées dans la correspondance militaire ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Rigueur, force, autorité, discipline.",
+          "Dignité, impartialité, intégrité, probité.",
+          "Loyauté, ambition, discrétion, rigueur.",
+          "Discipline, neutralité, sacrifice, disponibilité."
+        ],
+        "correct": 1,
+        "stem": "Avec quelles qualités le militaire doit-il exercer ses fonctions ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Il est le chef des armées.",
+          "Avec le conseil des ministres, il définit la politique de défense ; il est responsable de la Défense nationale.",
+          "Il commande directement les opérations militaires.",
+          "Il n'a aucun rôle en matière de défense."
+        ],
+        "correct": 1,
+        "stem": "Quel rôle joue le Premier ministre en matière de défense ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "false",
+        "options": [
+          "Le statut général définit l'ensemble des règles et droits auxquels sont soumis les militaires.",
+          "Il encadre leurs garanties, droits, libertés et obligations.",
+          "Il ne concerne que les obligations, jamais les droits.",
+          "C'est le cadre juridique de l'activité militaire."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Conduire les opérations spatiales militaires.",
+          "Appui au fonctionnement des bases aériennes, à la défense-sécurité, à la sécurité nucléaire, rayonnement territorial.",
+          "Gérer uniquement la solde des militaires.",
+          "Commander les forces aériennes stratégiques."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les missions du CTAAE ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Jamais, ce n'est pas prévu.",
+          "Au plus tôt 3 mois avant l'échéance.",
+          "Uniquement après expiration.",
+          "Uniquement sur demande du ministre."
+        ],
+        "correct": 1,
+        "stem": "Quand peut-on demander un renouvellement de l'avis de sécurité ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 2,
+        "stem": "Combien existe-t-il de classes de feu ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Les documents classifiés.",
+          "Les moyens/installations liés aux aéronefs et aux armes nucléaires.",
+          "Le personnel civil uniquement.",
+          "Les infrastructures administratives."
+        ],
+        "correct": 1,
+        "stem": "Que protège l'ESIS ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Prévention incendie",
+        "q": "Quel est le but de la prévention incendie ?",
+        "a": "Éviter l'éclosion et la propagation d'un foyer, permettre l'évacuation, faciliter l'intervention des secours."
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Citez les 2 grades de sous-officiers subalternes.",
+        "a": "Sergent, Sergent-chef."
+      },
+      {
+        "module": "Insignes des grades",
+        "q": "Quel insigne porte l'Aviateur ?",
+        "a": "Aucun insigne particulier."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Dans quel sens s'effectue la revue des troupes ?",
+        "a": "Dans le sens des aiguilles d'une montre."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Citez 3 catégories de personnes concernées par les honneurs funèbres.",
+        "a": "Chefs/camarades décédés en activité, dignitaires de la Légion d'Honneur, compagnons de la Libération (ou hautes personnalités civiles)."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Quelles sont les règles concernant les ratures dans la correspondance militaire ?",
+        "a": "Sans rature ni surcharge."
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "Citez les 5 principes fondamentaux liés à l'état militaire.",
+        "a": "Esprit de sacrifice, discipline, disponibilité, loyalisme, neutralité."
+      },
+      {
+        "module": "Défense nationale",
+        "q": "Citez les 5 fonctions stratégiques de la défense.",
+        "a": "Connaissance et anticipation, prévention, protection, intervention, dissuasion."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 3",
+    "qcm": [
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Commandant, Lieutenant-colonel, Colonel.",
+          "Aspirant, Sous-lieutenant, Lieutenant, Capitaine.",
+          "Sergent, Sergent-chef.",
+          "Général de brigade aérienne, Général de division aérienne."
+        ],
+        "correct": 1,
+        "stem": "Quels grades composent la catégorie des officiers subalternes ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "Il est identique à celui du Sergent.",
+          "Il utilise une couleur différente (bande bordeaux avec liseré blanc), contrairement aux chevrons jaunes ou bandes orange des autres grades.",
+          "Il ne porte aucun insigne.",
+          "Il porte des étoiles comme les généraux."
+        ],
+        "correct": 1,
+        "stem": "Quelle est la particularité de l'insigne de l'Adjudant par rapport aux autres sous-officiers ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "false",
+        "options": [
+          "La défense a pour but d'assurer la sécurité et l'intégrité du territoire.",
+          "Elle vise aussi la protection de la vie de la population.",
+          "Elle ne s'exerce qu'en temps de guerre déclarée.",
+          "Elle agit contre toutes les formes d'agression."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Uniquement le Président de la République.",
+          "L'autorité militaire ou certaines autorités civiles.",
+          "Uniquement des officiers généraux.",
+          "N'importe quel militaire présent."
+        ],
+        "correct": 1,
+        "stem": "Qui peut procéder à la revue des troupes ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Uniquement des officiers généraux.",
+          "Un porte-drapeau (officier subalterne/major/adjudant-chef décoré) + 2 sous-officiers qui encadrent + 3 militaires du rang au 2e rang.",
+          "Uniquement des sous-officiers.",
+          "Un seul militaire porteur du drapeau, sans escorte."
+        ],
+        "correct": 1,
+        "stem": "Qui compose la garde au drapeau ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Heures de 1 à 12, minutes de 1 à 60.",
+          "Heures de 00 à 23, minutes de 00 à 59, séparées par un « h » minuscule.",
+          "Format libre selon le rédacteur.",
+          "Toujours suivies de « heures » en toutes lettres."
+        ],
+        "correct": 1,
+        "stem": "Comment s'écrivent les heures et minutes dans la correspondance militaire ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Contester les ordres systématiquement.",
+          "Exécuter loyalement les ordres et rendre compte.",
+          "Ignorer les ordres non écrits.",
+          "Attendre une validation écrite avant d'agir."
+        ],
+        "correct": 1,
+        "stem": "Quel est le devoir principal du subordonné envers sa hiérarchie ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "false",
+        "options": [
+          "Connaissance et anticipation.",
+          "Prévention.",
+          "Dissuasion.",
+          "Négociation diplomatique."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "CEMA, DGA, SGA.",
+          "COMBdD, GSBdD, ESIS.",
+          "DRHAAE, CTAAE, CDE.",
+          "BRH, CAB/PIL, OPC."
+        ],
+        "correct": 0,
+        "stem": "De quels organismes le ministre des Armées est-il assisté ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Formation et recrutement.",
+          "Protection permanente de l'espace aérien national et conduite des opérations aériennes conventionnelles.",
+          "Gestion RH et solde.",
+          "Sécurité incendie et prévention."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les 2 missions opérationnelles majeures du CDAOA ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "L'information peut être publiée librement.",
+          "L'information ne doit pas être rendue publique et est réservée aux personnes ayant le besoin d'en connaître.",
+          "L'information est accessible à tout le monde après 10 ans.",
+          "L'information concerne uniquement le domaine médical."
+        ],
+        "correct": 1,
+        "stem": "Que signifie la mention « diffusion restreinte » ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Rayonnement, conduction, convection, déplacement de substance en combustion.",
+          "Explosion, implosion, dispersion, sublimation.",
+          "Chaleur, froid, humidité, sécheresse.",
+          "Vent, pluie, soleil, orage."
+        ],
+        "correct": 0,
+        "stem": "Quels sont les modes de propagation du feu ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Organisation de l'AAE",
+        "q": "Quelles sont les 2 missions opérationnelles majeures assurées par le CDAOA ?",
+        "a": "Protection permanente de l'espace aérien national (« police du ciel ») + conduite des opérations aériennes conventionnelles."
+      },
+      {
+        "module": "Protection des documents",
+        "q": "Quel est le but de la procédure d'habilitation ?",
+        "a": "Autoriser l'accès à des informations classifiées selon le besoin d'en connaître."
+      },
+      {
+        "module": "Généralités sur les feux",
+        "q": "Quels sont les 3 éléments du triangle du feu ?",
+        "a": "Combustible, comburant, énergie d'activation."
+      },
+      {
+        "module": "Prévention incendie",
+        "q": "Qui est responsable global de la sécurité incendie de la base ?",
+        "a": "Le commandant de base."
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Citez les 2 grades de sous-officiers supérieurs.",
+        "a": "Adjudant, Adjudant-chef."
+      },
+      {
+        "module": "Insignes des grades",
+        "q": "Combien de chevrons porte le Caporal ?",
+        "a": "Deux chevrons."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Qui peut effectuer la revue des troupes ?",
+        "a": "L'autorité militaire ou certaines autorités civiles."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Dans quel ordre se déroulent les honneurs aux monuments aux morts ?",
+        "a": "Sonnerie « aux morts » → minute de silence → hymne national."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 4",
+    "qcm": [
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Le 15.",
+          "Le 17.",
+          "Le 18.",
+          "Le 112."
+        ],
+        "correct": 2,
+        "stem": "Quel numéro compose-t-on sur le téléphone militaire pour alerter les secours ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Colonel, Lieutenant-colonel, Commandant.",
+          "Commandant, Lieutenant-colonel, Colonel.",
+          "Lieutenant-colonel, Commandant, Colonel.",
+          "Commandant, Colonel, Lieutenant-colonel."
+        ],
+        "correct": 1,
+        "stem": "Quel est l'ordre correct des grades d'officiers supérieurs, du plus bas au plus élevé ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "false",
+        "options": [
+          "Les militaires sont des objectifs potentiels pour les services étrangers.",
+          "Ils peuvent être ciblés par des individus isolés exploitant leurs relations familiales.",
+          "Cette vulnérabilité ne concerne jamais les relations amicales.",
+          "Des groupements divers peuvent aussi les cibler."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "Aucune, il porte des chevrons jaunes."
+        ],
+        "correct": 1,
+        "stem": "Combien de bandes orange porte le Major ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Les troupes peuvent se déplacer librement.",
+          "Aucun mouvement n'est effectué.",
+          "Seuls les officiers restent immobiles.",
+          "Les troupes saluent en marchant."
+        ],
+        "correct": 1,
+        "stem": "Que se passe-t-il pendant l'exécution de l'hymne national lors des honneurs rendus pied ferme ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Uniquement la fête nationale.",
+          "Les cérémonies commémoratives et la fête nationale.",
+          "Uniquement des cérémonies propres à l'armée de l'Air.",
+          "Aucune cérémonie n'est fixée par le calendrier."
+        ],
+        "correct": 1,
+        "stem": "Que comprennent les cérémonies nationales traditionnelles ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Uniquement le texte.",
+          "L'objet, la référence éventuelle, la pièce jointe éventuelle, le texte.",
+          "Uniquement l'objet et la signature.",
+          "La suscription et l'attache générale."
+        ],
+        "correct": 1,
+        "stem": "Que comprend le corps d'un compte rendu ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "false",
+        "options": [
+          "Le feu est une réaction chimique exothermique.",
+          "Il implique l'oxygène, appelé comburant.",
+          "Il implique une substance appelée combustible.",
+          "Il ne nécessite aucune énergie d'activation."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Aucune restriction, comme tout citoyen.",
+          "Droits reconnus mais restreints (pas d'adhésion politique, pas de droit de grève).",
+          "Interdiction totale de toute opinion.",
+          "Autorisation de manifester en tenue."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les conditions d'exercice des droits civils et politiques des militaires ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Ministre des Armées → Premier ministre → Président.",
+          "Président de la République → Premier ministre → Ministre des Armées.",
+          "Premier ministre → Président → Ministre des Armées.",
+          "CEMA → Président → Premier ministre."
+        ],
+        "correct": 1,
+        "stem": "Comment est organisée la chaîne de commandement au sommet de l'État ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Uniquement de la solde du personnel.",
+          "De la mise en condition opérationnelle des forces, du fonctionnement des unités, de la discipline/moral/dialogue social.",
+          "Uniquement de la sécurité incendie.",
+          "Uniquement des relations internationales."
+        ],
+        "correct": 1,
+        "stem": "De quoi le COMBA est-il responsable ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Jamais, les supports numériques ne sont pas concernés.",
+          "Dès qu'il a contenu au moins une fois une information classifiée.",
+          "Uniquement s'il est envoyé par email.",
+          "Uniquement à la demande du DGSE."
+        ],
+        "correct": 1,
+        "stem": "Quand intervient la classification d'un support numérique ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Comment s'écrivent le grade et la fonction dans un document militaire ?",
+        "a": "Entièrement en minuscules."
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "Avec quelles qualités le militaire doit-il exercer ses fonctions ?",
+        "a": "Dignité, impartialité, intégrité, probité."
+      },
+      {
+        "module": "Défense nationale",
+        "q": "Quel rôle joue le Président de la République en matière de défense ?",
+        "a": "Chef des armées, décide de l'emploi des forces, pouvoir d'engager les forces nucléaires."
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "q": "De quoi le COMBA est-il responsable sur sa base aérienne ?",
+        "a": "Mise en condition opérationnelle des forces, fonctionnement des unités, discipline/moral/dialogue social."
+      },
+      {
+        "module": "Protection des documents",
+        "q": "Quels sont les deux principaux niveaux d'habilitation, et leur durée de validité respective ?",
+        "a": "TRÈS SECRET (5 ans) et SECRET (7 ans)."
+      },
+      {
+        "module": "Généralités sur les feux",
+        "q": "Combien existe-t-il de classes de feu et lesquelles ?",
+        "a": "5 classes : A (secs), B (gras), C (gaz), D (métaux), F (auxiliaires de cuisson)."
+      },
+      {
+        "module": "Prévention incendie",
+        "q": "Quel est le rôle du préventionniste incendie (BPEI) ?",
+        "a": "Conseiller technique en prévention des risques d'incendie et de panique."
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Quel grade unique compose la catégorie des Majors ?",
+        "a": "Major."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 5",
+    "qcm": [
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Jaune.",
+          "Bleue.",
+          "Rouge.",
+          "Métal acier."
+        ],
+        "correct": 1,
+        "stem": "Quelle est la couleur d'un extincteur à eau ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Couper l'électricité.",
+          "Pénétrer dans une pièce enfumée.",
+          "Utiliser un extincteur adapté.",
+          "Alerter les secours."
+        ],
+        "correct": 1,
+        "stem": "Que ne faut-il pas faire face à un incendie ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "false",
+        "options": [
+          "Éviter l'éclosion d'un foyer.",
+          "Éviter la propagation.",
+          "Faciliter l'intervention des secours.",
+          "Assurer la formation au pilotage."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Général de corps aérien, de brigade aérienne, de division aérienne, d'armée aérienne.",
+          "Général de brigade aérienne, de division aérienne, de corps aérien, d'armée aérienne.",
+          "Général d'armée aérienne, de corps aérien, de division aérienne, de brigade aérienne.",
+          "Général de division aérienne, de brigade aérienne, d'armée aérienne, de corps aérien."
+        ],
+        "correct": 1,
+        "stem": "Quels sont, dans l'ordre, les 4 grades d'officiers généraux de l'AAE ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "Un anneau (cercle) jaune, au lieu d'une barrette.",
+          "Trois barrettes jaunes.",
+          "Une étoile.",
+          "Aucun insigne."
+        ],
+        "correct": 0,
+        "stem": "Quel insigne distingue l'Aspirant des autres officiers subalternes ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Sens inverse des aiguilles d'une montre.",
+          "Sens des aiguilles d'une montre.",
+          "Selon le choix du commandant du jour.",
+          "Toujours du fond vers l'avant."
+        ],
+        "correct": 1,
+        "stem": "Dans quel sens s'effectue généralement la revue des troupes ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Maryse Bastié.",
+          "CNE Guynemer.",
+          "La journée de l'Aviateur.",
+          "L'Appel du 18 juin."
+        ],
+        "correct": 1,
+        "stem": "Que représente la date du 11 septembre pour l'AAE ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "false",
+        "options": [
+          "Les militaires du rang comprennent l'Aviateur 2e classe et l'Aviateur 1re classe.",
+          "Le Caporal-chef fait partie des militaires du rang.",
+          "Le Sergent est un officier subalterne.",
+          "Les militaires du rang comprennent le Caporal."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "« Je soussigné… »",
+          "« J'ai l'honneur de vous rendre compte que… »",
+          "« Suite à votre demande… »",
+          "Aucune formule n'est imposée."
+        ],
+        "correct": 1,
+        "stem": "Par quelle formule un compte-rendu personnel doit-il commencer ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Activité, congé, retraite, réserve.",
+          "Activité, non-activité, détachement, hors cadres.",
+          "Service actif, service armé, service civil, service mixte.",
+          "Titulaire, stagiaire, contractuel, réserviste."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les 4 positions statutaires obligatoires d'un militaire ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Le ministre des Armées.",
+          "Le CEMA.",
+          "Le Premier ministre.",
+          "Le Président de la République."
+        ],
+        "correct": 1,
+        "stem": "Qui désigne le COMBdD pour chaque Base de Défense ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Aucun rôle particulier.",
+          "Assurer la continuité du commandement, la diffusion de l'alerte, la protection des installations.",
+          "Uniquement gérer le courrier.",
+          "Uniquement assurer l'entraînement sportif."
+        ],
+        "correct": 1,
+        "stem": "Quel est le rôle du service de permanence en HNO ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Insignes des grades",
+        "q": "Quelle couleur distingue l'insigne de l'Adjudant de celui des autres sous-officiers ?",
+        "a": "Une bande bordeaux avec un fin liseré blanc (au lieu des chevrons jaunes ou bandes orange)."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Dans quelles conditions l'hymne national est-il joué lors d'une prise d'armes ?",
+        "a": "Uniquement lorsque les troupes rendent les honneurs de pied ferme (aucun mouvement pendant)."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Que doit faire un militaire témoin de la cérémonie du pavillon national ?",
+        "a": "Il cesse son activité, fait face au mât des couleurs, salue et adopte une attitude respectueuse."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Comment doit-on traiter un sigle utilisé pour la première fois dans un texte ?",
+        "a": "En toutes lettres suivi du sigle entre parenthèses, lors de son premier emploi."
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "Quel est le principal devoir du subordonné envers sa hiérarchie ?",
+        "a": "Il a le devoir de rendre compte."
+      },
+      {
+        "module": "Défense nationale",
+        "q": "Quel rôle joue le Premier ministre en matière de défense ?",
+        "a": "Avec le conseil des ministres, il définit la politique de défense ; responsable de la Défense nationale."
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "q": "Que signifie l'acronyme OPC et quel est son rôle principal ?",
+        "a": "Officier de Permanence Commandement : encadrement du personnel en HNO, mise à disposition des moyens logistiques, coordination des services de permanence."
+      },
+      {
+        "module": "Protection des documents",
+        "q": "Quand peut-on demander un renouvellement d'avis de sécurité ?",
+        "a": "Au plus tôt 3 mois avant l'échéance."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 6",
+    "qcm": [
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Confidentiel et public.",
+          "Très Secret (TS) et Secret (S).",
+          "Restreint et libre.",
+          "Défense et civil."
+        ],
+        "correct": 1,
+        "stem": "Quels sont les deux principaux niveaux d'habilitation ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Feux gras.",
+          "Feux secs.",
+          "Feux de gaz.",
+          "Feux de métaux."
+        ],
+        "correct": 1,
+        "stem": "Que désigne la classe A de feu ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "false",
+        "options": [
+          "L'Aviateur ne porte aucun insigne particulier.",
+          "L'Aviateur 1e classe porte un chevron.",
+          "Le Caporal porte trois chevrons.",
+          "Le Caporal-chef porte plus de chevrons que le Caporal."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Le commandant de base.",
+          "Le préventionniste incendie (BPEI).",
+          "Le CDU.",
+          "L'ESIS."
+        ],
+        "correct": 1,
+        "stem": "Qui est le conseiller technique en prévention des risques d'incendie et de panique ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Entre les sous-officiers supérieurs et les officiers subalternes.",
+          "Entre les officiers subalternes et les officiers supérieurs.",
+          "Au sommet de la hiérarchie, au-dessus des officiers généraux.",
+          "Avant les militaires du rang."
+        ],
+        "correct": 0,
+        "stem": "Où se situe le grade de Major dans la hiérarchie militaire ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 2,
+        "stem": "Combien de barrettes jaunes porte le Colonel ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Médaille militaire, Légion d'Honneur, ONM, autres décorations.",
+          "Légion d'Honneur, Médaille militaire, ONM, autres décorations.",
+          "Autres décorations, ONM, Médaille militaire, Légion d'Honneur.",
+          "ONM, Légion d'Honneur, Médaille militaire, autres décorations."
+        ],
+        "correct": 1,
+        "stem": "Quel est l'ordre de remise des décorations ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "false",
+        "options": [
+          "Les prises d'armes de l'AAE peuvent être clôturées par un défilé de troupes à pied.",
+          "Elles peuvent être clôturées par un défilé d'unités dotées de véhicules ou d'engins spécialisés.",
+          "Elles peuvent être clôturées par un défilé aérien.",
+          "Un défilé exclusivement motorisé est imposé ; aucun défilé à pied n'est autorisé."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "FAMAS et baïonnettes.",
+          "Aucune arme.",
+          "Pistolets uniquement.",
+          "Sabres d'apparat uniquement."
+        ],
+        "correct": 0,
+        "stem": "Avec quel armement la garde au drapeau est-elle constituée ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "L'introduction (qui/quoi/quand/où).",
+          "Le développement (fonction/mission, faits, conséquences).",
+          "La conclusion (mesures prises).",
+          "La suscription."
+        ],
+        "correct": 2,
+        "stem": "Que contient le 3e paragraphe d'un compte rendu sous forme de lettre ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "3 ans, 6 ans, 9 ans.",
+          "6 ans, 9 ans, 12 ans.",
+          "5 ans, 10 ans, 15 ans.",
+          "4 ans, 8 ans, 12 ans."
+        ],
+        "correct": 1,
+        "stem": "Quels sont les 3 paliers de mutation définis par les règles de gestion ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Santé.",
+          "Renseignement extérieur.",
+          "Diplomatie.",
+          "Justice militaire."
+        ],
+        "correct": 0,
+        "stem": "Citez un organisme de soutien spécialisé d'une Base de Défense."
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Généralités sur les feux",
+        "q": "Que désigne la classe F ?",
+        "a": "Les feux liés aux auxiliaires de cuisson sur les appareils de cuisson."
+      },
+      {
+        "module": "Prévention incendie",
+        "q": "Que protège l'ESIS ?",
+        "a": "Les moyens/installations liés à la mise en œuvre des aéronefs et des armes nucléaires."
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Citez les 4 grades d'officiers subalternes.",
+        "a": "Aspirant, Sous-lieutenant, Lieutenant, Capitaine."
+      },
+      {
+        "module": "Insignes des grades",
+        "q": "Combien de bandes orange porte l'Adjudant-chef ?",
+        "a": "Une bande orange."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Citez les trois formes de défilé possibles lors d'une prise d'armes organisée par l'AAE.",
+        "a": "Défilé de troupes à pied, d'unités dotées de véhicules/engins spécialisés, défilé aérien."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Quand ont lieu les honneurs au drapeau ?",
+        "a": "Avant et après chaque prise d'armes."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Comment s'écrivent les heures et les minutes dans la correspondance militaire ?",
+        "a": "Heures de 00 à 23, minutes de 00 à 59, séparées par un « h » minuscule."
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "Le chef peut-il ordonner un acte contraire aux lois ? Justifiez.",
+        "a": "Non, il ne peut ordonner d'accomplir des actes contraires aux lois."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 7",
+    "qcm": [
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "« Garde à vous ! »",
+          "« À vos rangs, fixe ! »",
+          "« Fixe ! »",
+          "Aucune annonce n'est faite."
+        ],
+        "correct": 1,
+        "stem": "Quelle annonce fait-on à l'arrivée d'un officier général dans une pièce ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Rien, ce n'est pas sanctionné.",
+          "Une sanction pénale, car cela constitue une atteinte à la sûreté de l'État.",
+          "Un simple avertissement oral.",
+          "Une mutation automatique."
+        ],
+        "correct": 1,
+        "stem": "Que risque un militaire qui divulgue un document classifié ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "false",
+        "options": [
+          "Aux monuments aux morts, la sonnerie « aux morts » est jouée en premier.",
+          "La minute de silence vient ensuite.",
+          "L'hymne national est joué en dernier.",
+          "L'hymne national est joué avant la sonnerie aux morts."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Bleue.",
+          "Jaune.",
+          "Métal acier.",
+          "Verte."
+        ],
+        "correct": 2,
+        "stem": "Quelle est la couleur d'un extincteur CO2 ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Sanctionner les fautifs.",
+          "Éviter l'éclosion et la propagation d'un foyer, permettre l'évacuation, faciliter l'intervention des secours.",
+          "Former les pompiers.",
+          "Établir des statistiques."
+        ],
+        "correct": 1,
+        "stem": "Quel est le but de la prévention incendie ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Sergent, Sergent-chef, Adjudant, Adjudant-chef.",
+          "Aviateur 2e classe, Aviateur 1re classe, Caporal, Caporal-chef.",
+          "Aspirant, Sous-lieutenant, Lieutenant, Capitaine.",
+          "Major uniquement."
+        ],
+        "correct": 1,
+        "stem": "Quels grades composent la catégorie des militaires du rang ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": 3,
+        "stem": "Combien d'étoiles porte le Général d'armée aérienne ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "false",
+        "options": [
+          "Les noms prennent une majuscule.",
+          "Les prénoms prennent une majuscule.",
+          "Le grade et la fonction s'écrivent entièrement en majuscules.",
+          "Les points cardinaux prennent une majuscule."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Il est joué en continu pendant tout le défilé.",
+          "Il est joué uniquement lorsque les troupes rendent les honneurs de pied ferme.",
+          "Il n'est jamais joué lors d'une prise d'armes.",
+          "Il est joué uniquement pendant la revue."
+        ],
+        "correct": 1,
+        "stem": "Dans quelles conditions l'hymne national est-il joué lors d'une prise d'armes ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Uniquement les officiers généraux.",
+          "Chefs/camarades décédés en activité, dignitaires de la Légion d'Honneur, compagnons de la Libération, dignitaires de l'ONM, hautes personnalités civiles.",
+          "Uniquement les personnalités civiles.",
+          "Uniquement les militaires du rang."
+        ],
+        "correct": 1,
+        "stem": "Quelles catégories de personnes sont concernées par les honneurs funèbres ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Oui, systématiquement.",
+          "Non, elle est rédigée sans formule de politesse.",
+          "Seulement pour les officiers supérieurs.",
+          "Seulement dans les comptes rendus."
+        ],
+        "correct": 1,
+        "stem": "La correspondance militaire comporte-t-elle une formule de politesse ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Ambition, rigueur, autorité, discrétion, courage.",
+          "Esprit de sacrifice, discipline, disponibilité, loyalisme, neutralité.",
+          "Obéissance, fidélité, honneur, force, gloire.",
+          "Discipline, hiérarchie, uniforme, grade, solde."
+        ],
+        "correct": 1,
+        "stem": "Quels sont les 5 principes fondamentaux liés à l'état militaire ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Défense nationale",
+        "q": "De quels organismes le ministre des Armées est-il assisté ?",
+        "a": "CEMA, DGA, SGA."
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "q": "Citez les 4 grandes catégories de grades, des militaires du rang aux officiers généraux.",
+        "a": "Militaires du rang, sous-officiers, officiers, officiers généraux (avec les majors entre les deux)."
+      },
+      {
+        "module": "Protection des documents",
+        "q": "Que signifient les sigles TSD et SD ?",
+        "a": "Très Secret Défense et Secret Défense."
+      },
+      {
+        "module": "Généralités sur les feux",
+        "q": "Citez les 4 modes de propagation du feu.",
+        "a": "Rayonnement, conduction, convection, déplacement de substance en combustion."
+      },
+      {
+        "module": "Prévention incendie",
+        "q": "Qui est responsable de la sécurité incendie au sein d'une unité ?",
+        "a": "Le commandant d'unité (CDU)."
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Citez les 3 grades d'officiers supérieurs, dans l'ordre.",
+        "a": "Commandant, Lieutenant-colonel, Colonel."
+      },
+      {
+        "module": "Insignes des grades",
+        "q": "Quel insigne particulier porte l'Aspirant ?",
+        "a": "Un anneau (cercle) jaune, contrairement aux barrettes des autres officiers subalternes."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Devant quoi s'effectue la remise de décoration, et dans quel sens ?",
+        "a": "Devant un drapeau sans sa garde, de la gauche vers la droite."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 8",
+    "qcm": [
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Attaque, défense, repli, alliance, veille.",
+          "Connaissance et anticipation, prévention, protection, intervention, dissuasion.",
+          "Renseignement, sécurité, ordre, discipline, loyauté.",
+          "Prévention, répression, coopération, alliance, neutralité."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les 5 fonctions stratégiques de la défense ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Il commande directement les bases aériennes.",
+          "Il conseille et assiste le CEMA au titre de l'expertise propre à son armée.",
+          "Il gère uniquement les ressources humaines.",
+          "Il dirige le ministère des Armées."
+        ],
+        "correct": 1,
+        "stem": "Quel est le rôle du CEMAAE ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "false",
+        "options": [
+          "Les militaires en activité peuvent exercer une activité privée lucrative sans restriction.",
+          "Ils doivent obéissance aux ordres de leurs supérieurs.",
+          "Ils sont responsables de l'exécution des missions confiées.",
+          "Ils exercent leurs fonctions avec dignité, impartialité, intégrité et probité."
+        ],
+        "correct": 0
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Sanctionner les militaires.",
+          "Autoriser l'accès à des informations classifiées selon le besoin d'en connaître.",
+          "Attribuer un grade.",
+          "Valider une mutation."
+        ],
+        "correct": 1,
+        "stem": "Quel est le but de la procédure d'habilitation ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Chaleur, fumée, flamme.",
+          "Combustible, comburant, énergie d'activation.",
+          "Oxygène, eau, carbone.",
+          "Bois, essence, gaz."
+        ],
+        "correct": 1,
+        "stem": "Quels sont les 3 éléments du triangle du feu ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Le préventionniste incendie.",
+          "Le commandant de base.",
+          "L'ESIS.",
+          "Le CDU."
+        ],
+        "correct": 1,
+        "stem": "Qui est responsable global de la sécurité incendie de la base ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Officier subalterne.",
+          "Une catégorie à part, entre les sous-officiers et les officiers.",
+          "Sous-officier subalterne.",
+          "Officier supérieur."
+        ],
+        "correct": 1,
+        "stem": "À quelle catégorie appartient le grade de Major ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "false",
+        "options": [
+          "Le Président de la République est le chef des armées.",
+          "Il décide de l'emploi des forces.",
+          "Il détient la responsabilité d'engager les forces nucléaires.",
+          "Il ne peut jamais engager les forces sans l'accord du Premier ministre."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": 2,
+        "stem": "Combien de chevrons porte le Caporal-chef ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "De la droite vers la gauche.",
+          "De la gauche vers la droite.",
+          "Du centre vers l'extérieur.",
+          "Aucun sens n'est imposé."
+        ],
+        "correct": 1,
+        "stem": "Dans quel sens s'effectue la remise de décorations, face aux récipiendaires ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Continuer son activité normalement.",
+          "Cesser son activité, faire face au mât, saluer et adopter une attitude respectueuse.",
+          "Se mettre à l'abri.",
+          "Rien de particulier n'est prévu."
+        ],
+        "correct": 1,
+        "stem": "Que doit faire un militaire témoin de la cérémonie du pavillon national ?"
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Grade et fonction.",
+          "Noms, prénoms, 1ère lettre du destinataire/expéditeur, noms de lieux, points cardinaux.",
+          "Uniquement les noms propres de personnes.",
+          "Aucune majuscule n'est imposée."
+        ],
+        "correct": 1,
+        "stem": "Quelles majuscules sont exigées dans la correspondance militaire ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Les honneurs militaires",
+        "q": "Qui compose la garde au drapeau ?",
+        "a": "Un porte-drapeau + 2 sous-officiers qui encadrent + 3 militaires du rang au 2e rang."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Que comprend l'en-tête d'un compte-rendu ?",
+        "a": "L'attache générale, le lieu et la date de signature, la suscription."
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "Citez les 4 positions statutaires possibles pour un militaire.",
+        "a": "Activité, non-activité, détachement, hors cadres."
+      },
+      {
+        "module": "Défense nationale",
+        "q": "De quoi le CEMA est-il responsable ?",
+        "a": "De l'organisation générale des armées/organismes interarmées et de leur préparation/mise en condition d'emploi."
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "q": "Comment doit-on annoncer l'arrivée d'un sous-officier à l'intérieur des locaux ?",
+        "a": "« Garde à vous ! »"
+      },
+      {
+        "module": "Protection des documents",
+        "q": "Que signifie la mention « diffusion restreinte » ?",
+        "a": "L'information ne doit pas être rendue publique, communiquée seulement à ceux ayant le besoin d'en connaître."
+      },
+      {
+        "module": "Généralités sur les feux",
+        "q": "Quelle est la couleur d'un extincteur à eau ?",
+        "a": "Bleue."
+      },
+      {
+        "module": "Prévention incendie",
+        "q": "Quel numéro compose-t-on sur le téléphone militaire pour alerter les secours ?",
+        "a": "Le 18."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 9",
+    "qcm": [
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Rigueur, force, autorité, discipline.",
+          "Dignité, impartialité, intégrité, probité.",
+          "Loyauté, ambition, discrétion, rigueur.",
+          "Discipline, neutralité, sacrifice, disponibilité."
+        ],
+        "correct": 1,
+        "stem": "Avec quelles qualités le militaire doit-il exercer ses fonctions ?"
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "Il est le chef des armées.",
+          "Avec le conseil des ministres, il définit la politique de défense ; il est responsable de la Défense nationale.",
+          "Il commande directement les opérations militaires.",
+          "Il n'a aucun rôle en matière de défense."
+        ],
+        "correct": 1,
+        "stem": "Quel rôle joue le Premier ministre en matière de défense ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "false",
+        "options": [
+          "La DRHAAE gère l'administration des aviateurs.",
+          "Elle gère la formation.",
+          "Elle participe au recrutement.",
+          "Elle commande les opérations aériennes."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Conduire les opérations spatiales militaires.",
+          "Appui au fonctionnement des bases aériennes, à la défense-sécurité, à la sécurité nucléaire, rayonnement territorial.",
+          "Gérer uniquement la solde des militaires.",
+          "Commander les forces aériennes stratégiques."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les missions du CTAAE ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "Jamais, ce n'est pas prévu.",
+          "Au plus tôt 3 mois avant l'échéance.",
+          "Uniquement après expiration.",
+          "Uniquement sur demande du ministre."
+        ],
+        "correct": 1,
+        "stem": "Quand peut-on demander un renouvellement de l'avis de sécurité ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "correct": 2,
+        "stem": "Combien existe-t-il de classes de feu ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Les documents classifiés.",
+          "Les moyens/installations liés aux aéronefs et aux armes nucléaires.",
+          "Le personnel civil uniquement.",
+          "Les infrastructures administratives."
+        ],
+        "correct": 1,
+        "stem": "Que protège l'ESIS ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "false",
+        "options": [
+          "Il existe deux niveaux principaux d'habilitation : TS et S.",
+          "TRÈS SECRET a une durée de validité maximale de 5 ans.",
+          "SECRET a une durée de validité maximale de 7 ans.",
+          "TRÈS SECRET a une durée de validité maximale de 10 ans."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Commandant, Lieutenant-colonel, Colonel.",
+          "Aspirant, Sous-lieutenant, Lieutenant, Capitaine.",
+          "Sergent, Sergent-chef.",
+          "Général de brigade aérienne, Général de division aérienne."
+        ],
+        "correct": 1,
+        "stem": "Quels grades composent la catégorie des officiers subalternes ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "Il est identique à celui du Sergent.",
+          "Il utilise une couleur différente (bande bordeaux avec liseré blanc), contrairement aux chevrons jaunes ou bandes orange des autres grades.",
+          "Il ne porte aucun insigne.",
+          "Il porte des étoiles comme les généraux."
+        ],
+        "correct": 1,
+        "stem": "Quelle est la particularité de l'insigne de l'Adjudant par rapport aux autres sous-officiers ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Uniquement le Président de la République.",
+          "L'autorité militaire ou certaines autorités civiles.",
+          "Uniquement des officiers généraux.",
+          "N'importe quel militaire présent."
+        ],
+        "correct": 1,
+        "stem": "Qui peut procéder à la revue des troupes ?"
+      },
+      {
+        "module": "Les honneurs militaires",
+        "type": "true",
+        "options": [
+          "Uniquement des officiers généraux.",
+          "Un porte-drapeau (officier subalterne/major/adjudant-chef décoré) + 2 sous-officiers qui encadrent + 3 militaires du rang au 2e rang.",
+          "Uniquement des sous-officiers.",
+          "Un seul militaire porteur du drapeau, sans escorte."
+        ],
+        "correct": 1,
+        "stem": "Qui compose la garde au drapeau ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Citez les 4 grades d'officiers généraux de l'AAE, dans l'ordre.",
+        "a": "Général de brigade aérienne, Général de division aérienne, Général de corps aérien, Général d'armée aérienne."
+      },
+      {
+        "module": "Insignes des grades",
+        "q": "Combien de barrettes jaunes porte le Commandant ?",
+        "a": "Quatre barrettes."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Citez, dans l'ordre, les 4 catégories de décorations remises.",
+        "a": "Légion d'Honneur, Médaille Militaire, Ordre National du Mérite, autres décorations."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Avec quel armement la garde au drapeau est-elle constituée ?",
+        "a": "FAMAS et baïonnettes."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Par quelle formule doit obligatoirement commencer un compte-rendu personnel ?",
+        "a": "« J'ai l'honneur de vous rendre compte que… »"
+      },
+      {
+        "module": "Statut général des militaires",
+        "q": "De quoi se compose la rémunération d'un militaire ?",
+        "a": "Une base commune (solde indiciaire selon grade) + primes/indemnités liées à des situations individuelles."
+      },
+      {
+        "module": "Défense nationale",
+        "q": "Qu'est-ce qu'une Base de Défense (BdD) et quelle est sa mission ?",
+        "a": "Une aire géographique regroupant les formations du ministère des Armées ; mission de soutenir les forces opérationnelles en mutualisant les soutiens communs."
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "q": "À quelle catégorie de personnel civil des armées correspond un secrétaire administratif ?",
+        "a": "Catégorie B."
+      }
+    ]
+  },
+  {
+    "title": "Quiz 10",
+    "qcm": [
+      {
+        "module": "Rédaction d'un compte rendu",
+        "type": "true",
+        "options": [
+          "Heures de 1 à 12, minutes de 1 à 60.",
+          "Heures de 00 à 23, minutes de 00 à 59, séparées par un « h » minuscule.",
+          "Format libre selon le rédacteur.",
+          "Toujours suivies de « heures » en toutes lettres."
+        ],
+        "correct": 1,
+        "stem": "Comment s'écrivent les heures et minutes dans la correspondance militaire ?"
+      },
+      {
+        "module": "Statut général des militaires",
+        "type": "true",
+        "options": [
+          "Contester les ordres systématiquement.",
+          "Exécuter loyalement les ordres et rendre compte.",
+          "Ignorer les ordres non écrits.",
+          "Attendre une validation écrite avant d'agir."
+        ],
+        "correct": 1,
+        "stem": "Quel est le devoir principal du subordonné envers sa hiérarchie ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "false",
+        "options": [
+          "Classe A = feux secs.",
+          "Classe B = feux gras.",
+          "Classe C = feux de gaz.",
+          "Classe D = feux électriques."
+        ],
+        "correct": 3
+      },
+      {
+        "module": "Défense nationale",
+        "type": "true",
+        "options": [
+          "CEMA, DGA, SGA.",
+          "COMBdD, GSBdD, ESIS.",
+          "DRHAAE, CTAAE, CDE.",
+          "BRH, CAB/PIL, OPC."
+        ],
+        "correct": 0,
+        "stem": "De quels organismes le ministre des Armées est-il assisté ?"
+      },
+      {
+        "module": "Organisation de l'AAE",
+        "type": "true",
+        "options": [
+          "Formation et recrutement.",
+          "Protection permanente de l'espace aérien national et conduite des opérations aériennes conventionnelles.",
+          "Gestion RH et solde.",
+          "Sécurité incendie et prévention."
+        ],
+        "correct": 1,
+        "stem": "Quelles sont les 2 missions opérationnelles majeures du CDAOA ?"
+      },
+      {
+        "module": "Protection des documents",
+        "type": "true",
+        "options": [
+          "L'information peut être publiée librement.",
+          "L'information ne doit pas être rendue publique et est réservée aux personnes ayant le besoin d'en connaître.",
+          "L'information est accessible à tout le monde après 10 ans.",
+          "L'information concerne uniquement le domaine médical."
+        ],
+        "correct": 1,
+        "stem": "Que signifie la mention « diffusion restreinte » ?"
+      },
+      {
+        "module": "Généralités sur les feux",
+        "type": "true",
+        "options": [
+          "Rayonnement, conduction, convection, déplacement de substance en combustion.",
+          "Explosion, implosion, dispersion, sublimation.",
+          "Chaleur, froid, humidité, sécheresse.",
+          "Vent, pluie, soleil, orage."
+        ],
+        "correct": 0,
+        "stem": "Quels sont les modes de propagation du feu ?"
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "false",
+        "options": [
+          "Le préventionniste incendie est affecté au bureau prévention environnement incendie (BPEI).",
+          "Il est le conseiller technique en prévention des risques d'incendie et de panique.",
+          "Il commande directement l'ESIS lors des interventions.",
+          "Son rôle est un rôle de conseil."
+        ],
+        "correct": 2
+      },
+      {
+        "module": "Prévention incendie",
+        "type": "true",
+        "options": [
+          "Le 15.",
+          "Le 17.",
+          "Le 18.",
+          "Le 112."
+        ],
+        "correct": 2,
+        "stem": "Quel numéro compose-t-on sur le téléphone militaire pour alerter les secours ?"
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "type": "true",
+        "options": [
+          "Colonel, Lieutenant-colonel, Commandant.",
+          "Commandant, Lieutenant-colonel, Colonel.",
+          "Lieutenant-colonel, Commandant, Colonel.",
+          "Commandant, Colonel, Lieutenant-colonel."
+        ],
+        "correct": 1,
+        "stem": "Quel est l'ordre correct des grades d'officiers supérieurs, du plus bas au plus élevé ?"
+      },
+      {
+        "module": "Insignes des grades",
+        "type": "true",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "Aucune, il porte des chevrons jaunes."
+        ],
+        "correct": 1,
+        "stem": "Combien de bandes orange porte le Major ?"
+      },
+      {
+        "module": "Les prises d'armes",
+        "type": "true",
+        "options": [
+          "Les troupes peuvent se déplacer librement.",
+          "Aucun mouvement n'est effectué.",
+          "Seuls les officiers restent immobiles.",
+          "Les troupes saluent en marchant."
+        ],
+        "correct": 1,
+        "stem": "Que se passe-t-il pendant l'exécution de l'hymne national lors des honneurs rendus pied ferme ?"
+      }
+    ],
+    "qcr": [
+      {
+        "module": "Protection des documents",
+        "q": "Donnez un exemple de document « confidentiel » cité dans le fascicule.",
+        "a": "Confidentiel médical, sous-officier (ou commercial/technologie/industrie/concours/protection-personnel)."
+      },
+      {
+        "module": "Généralités sur les feux",
+        "q": "Quelle est la couleur d'un extincteur à poudre ?",
+        "a": "Jaune."
+      },
+      {
+        "module": "Prévention incendie",
+        "q": "Citez 3 informations à donner lors de l'alerte des secours.",
+        "a": "Le lieu exact, la nature du feu, l'importance du feu (ou le nombre de victimes)."
+      },
+      {
+        "module": "Grades et hiérarchie",
+        "q": "Le major est-il un officier ? Expliquez sa position.",
+        "a": "Non, c'est une catégorie à part, entre les sous-officiers supérieurs et les officiers subalternes."
+      },
+      {
+        "module": "Insignes des grades",
+        "q": "Qu'est-ce qui distingue visuellement l'insigne du Lieutenant-colonel de celui du Colonel ?",
+        "a": "Le Lieutenant-colonel présente un espace/interruption entre les barrettes, tandis que le Colonel a cinq barrettes pleines."
+      },
+      {
+        "module": "Les prises d'armes",
+        "q": "Que représente le fait de « passer les troupes en revue » pour l'autorité qui l'effectue ?",
+        "a": "C'est un acte de commandement."
+      },
+      {
+        "module": "Les honneurs militaires",
+        "q": "Citez les 3 dates de cérémonies propres à l'AAE, avec leur signification.",
+        "a": "11 septembre = CNE Guynemer ; 6 juillet = Maryse Bastié ; 2 juillet = journée de l'Aviateur."
+      },
+      {
+        "module": "Rédaction d'un compte rendu",
+        "q": "Que doit contenir chacun des 3 paragraphes d'un compte-rendu sous forme de lettre ?",
+        "a": "1er : intro (qui/quoi/quand/où) ; 2e : développement (fonction/mission, faits, conséquences) ; 3e : conclusion (mesures prises)."
+      }
+    ]
+  }
+];
+
+</script>
+
+<script>
+let currentQuiz = 0;
+const state = QUIZZES.map(q => ({
+  answers: new Array(q.qcm.length).fill(null),
+  corrected: false
+}));
+
+function renderTabs(){
+  const tabbar = document.getElementById('tabbar');
+  tabbar.innerHTML = '';
+  QUIZZES.forEach((q, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab' + (i === currentQuiz ? ' active' : '');
+    const st = state[i];
+    let scoreHtml = '';
+    if(st.corrected){
+      const score = st.answers.reduce((acc,a,idx)=> acc + (a===q.qcm[idx].correct?1:0), 0);
+      scoreHtml = `<span class="tab-score">${score}/${q.qcm.length}</span>`;
+    }
+    btn.innerHTML = `<span>${q.title}</span>${scoreHtml}`;
+    btn.onclick = () => { currentQuiz = i; renderAll(); window.scrollTo({top:0, behavior:'smooth'}); };
+    tabbar.appendChild(btn);
+  });
+}
+
+function renderContent(){
+  const quiz = QUIZZES[currentQuiz];
+  const st = state[currentQuiz];
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+
+  const title = document.createElement('h2');
+  title.className = 'quiz-title';
+  title.textContent = quiz.title;
+  content.appendChild(title);
+
+  const sub = document.createElement('p');
+  sub.className = 'quiz-sub';
+  sub.textContent = "Modules mélangés — chaque question précise son type et son module d'origine.";
+  content.appendChild(sub);
+
+  const qcmHeading = document.createElement('div');
+  qcmHeading.className = 'section-heading';
+  qcmHeading.textContent = `QCM (${quiz.qcm.length})`;
+  content.appendChild(qcmHeading);
+
+  const letters = ['A','B','C','D'];
+
+  quiz.qcm.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'qcard';
+
+    const meta = document.createElement('div');
+    meta.className = 'qmeta';
+    meta.innerHTML = `<span class="qnum">Question ${qi+1}</span>
+      <span class="tag-group">
+        <span class="tag module">${q.module}</span>
+        <span class="tag ${q.type}">${q.type==='false' ? 'Trouve la fausse' : 'Trouve la bonne'}</span>
+      </span>`;
+    card.appendChild(meta);
+
+    if(q.stem){
+      const stem = document.createElement('p');
+      stem.className = 'stem';
+      stem.textContent = q.stem;
+      card.appendChild(stem);
+    }
+
+    q.options.forEach((opt, oi) => {
+      const label = document.createElement('label');
+      label.className = 'option';
+      if(st.corrected) label.classList.add('locked');
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = `q${currentQuiz}_${qi}`;
+      input.checked = st.answers[qi] === oi;
+      input.disabled = st.corrected;
+      input.onchange = () => { st.answers[qi] = oi; };
+
+      const letterSpan = document.createElement('span');
+      letterSpan.className = 'letter';
+      letterSpan.textContent = letters[oi];
+
+      const textSpan = document.createElement('span');
+      textSpan.textContent = opt;
+
+      label.appendChild(input);
+      label.appendChild(letterSpan);
+      label.appendChild(textSpan);
+
+      if(st.corrected){
+        if(oi === q.correct) label.classList.add('correct');
+        else if(st.answers[qi] === oi) label.classList.add('incorrect');
+      }
+
+      card.appendChild(label);
+    });
+
+    content.appendChild(card);
+  });
+
+  const actionBar = document.createElement('div');
+  actionBar.className = 'action-bar';
+
+  const correctBtn = document.createElement('button');
+  correctBtn.className = 'primary';
+  correctBtn.textContent = 'Corriger le QCM';
+  correctBtn.onclick = () => { st.corrected = true; renderAll(); };
+  actionBar.appendChild(correctBtn);
+
+  const resetBtn = document.createElement('button');
+  resetBtn.className = 'ghost';
+  resetBtn.textContent = 'Réinitialiser';
+  resetBtn.onclick = () => {
+    st.answers = new Array(quiz.qcm.length).fill(null);
+    st.corrected = false;
+    renderAll();
+  };
+  actionBar.appendChild(resetBtn);
+
+  const scorePill = document.createElement('span');
+  scorePill.className = 'score-pill' + (st.corrected ? ' show' : '');
+  if(st.corrected){
+    const score = st.answers.reduce((acc,a,idx)=> acc + (a===quiz.qcm[idx].correct?1:0), 0);
+    scorePill.textContent = `Score : ${score} / ${quiz.qcm.length}`;
+  }
+  actionBar.appendChild(scorePill);
+
+  content.appendChild(actionBar);
+
+  const qcrHeading = document.createElement('div');
+  qcrHeading.className = 'section-heading';
+  qcrHeading.textContent = `QCR (${quiz.qcr.length}) — réponse courte`;
+  content.appendChild(qcrHeading);
+
+  quiz.qcr.forEach((item, qi) => {
+    const card = document.createElement('div');
+    card.className = 'qcr-card';
+
+    const meta = document.createElement('div');
+    meta.className = 'qmeta';
+    meta.innerHTML = `<span class="tag-group"><span class="tag module">${item.module}</span></span>`;
+    card.appendChild(meta);
+
+    const stem = document.createElement('p');
+    stem.className = 'stem';
+    stem.textContent = `${qi+1}. ${item.q}`;
+    card.appendChild(stem);
+
+    const ta = document.createElement('textarea');
+    ta.placeholder = 'Écris ta réponse ici avant de vérifier...';
+    card.appendChild(ta);
+
+    const revealBtn = document.createElement('button');
+    revealBtn.className = 'reveal-btn';
+    revealBtn.textContent = 'Voir la réponse';
+    const answerDiv = document.createElement('div');
+    answerDiv.className = 'answer';
+    answerDiv.textContent = item.a;
+    revealBtn.onclick = () => {
+      answerDiv.classList.toggle('show');
+      revealBtn.textContent = answerDiv.classList.contains('show') ? 'Masquer la réponse' : 'Voir la réponse';
+    };
+    card.appendChild(revealBtn);
+    card.appendChild(answerDiv);
+
+    content.appendChild(card);
+  });
+}
+
+function renderAll(){
+  renderTabs();
+  renderContent();
+}
+
+renderAll();
+</script>
+</body>
+</html>
