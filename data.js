@@ -1996,11 +1996,11 @@ const MODULES = [
               },
               {
                 "num": 4,
-                "answer": "Carcasse inférieure"
+                "answer": "Crosse"
               },
               {
                 "num": 5,
-                "answer": "Le chargeur"
+                "answer": "Chargeur"
               },
               {
                 "num": 6,
