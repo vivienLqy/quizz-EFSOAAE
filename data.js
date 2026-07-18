@@ -1949,6 +1949,351 @@ const MODULES = [
             "module": "Armement",
             "q": "Quelles sont les 4 règles élémentaires de sécurité ?",
             "a": "- Règle n°1 : Une arme doit toujours être considérée comme chargée.\n- Règle n°2 : Ne jamais pointer ou laisser pointer le canon d'une arme sur quelque chose qu'on ne veut pas détruire.\n- Règle n°3 : Garder l'index hors de la détente tant que les organes de visée ne sont pas sur l'objectif.\n- Règle n°4 : Être sûr de son objectif et de son environnement."
+          },
+          {
+            "module": "Armement",
+            "q": "Comment s'appelle une munition destinée à être tirée ?",
+            "a": "Une cartouche."
+          },
+          {
+            "module": "Armement",
+            "q": "Cite les 4 éléments qui composent une cartouche.",
+            "a": "- L'étui (ou la douille)\n- La balle (ou l'obus)\n- La charge (poudre)\n- L'amorce"
+          },
+          {
+            "module": "Armement",
+            "q": "Quel est le rôle de l'amorce ?",
+            "a": "Déclencher la mise à feu de la cartouche. Elle est sensible aux chocs et à la chaleur."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la différence entre une arme semi-automatique et une arme automatique ?",
+            "a": "- Semi-automatique : tire un coup par pression sur la détente.\n- Automatique : tire en rafales tant que la détente est maintenue appuyée."
+          },
+          {
+            "module": "Armement",
+            "q": "Combien d'opérations composent le chargement d'une arme ? Donne-les dans l'ordre.",
+            "a": "Il y en a 6 :\n1. Emmagasinage\n2. Approvisionnement\n3. Transport\n4. Distribution\n5. Présentation\n6. Introduction"
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle différence existe-t-il entre l'extraction et l'éjection ?",
+            "a": "- Extraction : retrait de l'étui de la chambre.\n- Éjection : expulsion de l'étui hors de l'arme."
+          },
+          {
+            "module": "Armement",
+            "q": "Qu'appelle-t-on l'œil directeur ?",
+            "a": "C'est l'œil qui dirige la vision. Il reste ouvert pendant le tir."
+          },
+          {
+            "module": "Armement",
+            "q": "Quels sont les 3 types de visée ?",
+            "a": "- Standard\n- Mixte\n- Fantôme"
+          },
+          {
+            "module": "Armement",
+            "q": "Que signifie le calibre 5,56 × 45 mm ?",
+            "a": "- 5,56 mm = diamètre du projectile (calibre).\n- 45 mm = longueur de l'étui."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la portée pratique du HK416F ?",
+            "a": "300 mètres."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la capacité du chargeur du HK416F ?",
+            "a": "30 cartouches."
+          }
+        ]
+      },
+      {
+        "title": "Série 2",
+        "items": [
+          {
+            "module": "Armement",
+            "q": "Quel est le rôle de l'étui (douille) d'une cartouche ? Cite 3 fonctions.",
+            "a": "- Assurer l'étanchéité par l'obturation de la chambre\n- Contenir la charge de poudre\n- Porter l'amorce et la balle"
+          },
+          {
+            "module": "Armement",
+            "q": "Quelles sont les différentes catégories de munitions réelles ?",
+            "a": "Cartouches à balles ordinaires, perforantes, incendiaires, traçantes, dérivées, et cartouches de lancement (fusil lance-grenade)."
+          },
+          {
+            "module": "Armement",
+            "q": "Qu'appelle-t-on un cycle de fonctionnement d'une arme ?",
+            "a": "Un mouvement arrière des pièces lors du départ du coup, suivi d'un mouvement avant."
+          },
+          {
+            "module": "Armement",
+            "q": "Quel est le rôle du mécanisme d'obturation ?",
+            "a": "Assurer l'étanchéité culasse-canon (via l'étui) au moment du tir, pour éviter une perte de pression des gaz génératrice d'incidents de tir."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la différence entre la sûreté et la sécurité d'une arme ?",
+            "a": "- Sûreté : mécanisme manœuvré par le tireur, interdisant toute percussion accidentelle\n- Sécurité : mécanisme agissant sans l'intervention du tireur, interdisant toute percussion prématurée ou accidentelle"
+          },
+          {
+            "module": "Armement",
+            "q": "Quelles sont les quatre positions de tir enseignées ?",
+            "a": "Debout, à genoux, couché, assis."
+          },
+          {
+            "module": "Armement",
+            "q": "Quel document atteste qu'un tireur est autorisé à pratiquer le tir ?",
+            "a": "Le Certificat d'Aptitude au Tir (C.A.Ti.)."
+          },
+          {
+            "module": "Armement",
+            "q": "Qui est responsable de la séance de tir ?",
+            "a": "Le directeur de tir."
+          },
+          {
+            "module": "Armement",
+            "q": "Quels sont les deux moyens de vérifier la présence d'une cartouche en chambre lors d'un contrôle de chargement ?",
+            "a": "Visuellement (de jour) ou tactilement (de nuit)."
+          },
+          {
+            "module": "Armement",
+            "q": "Où est éjecté l'étui sur le HK416F ?",
+            "a": "Uniquement du côté droit de l'arme."
+          },
+          {
+            "module": "Armement",
+            "q": "Donne les six parties principales du HK416F.",
+            "a": "Carcasse supérieure, ensemble mobile, levier d'armement, carcasse inférieure, chargeur, garde-main."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la vitesse initiale de la balle du HK416F ?",
+            "a": "850 m/s."
+          }
+        ]
+      },
+      {
+        "title": "Série 3",
+        "items": [
+          {
+            "module": "Armement",
+            "q": "Quel est le rôle de la charge dans une cartouche ?",
+            "a": "C'est la partie active qui crée, par déflagration, une forte pression destinée à projeter la balle."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la différence entre une cartouche réelle, une cartouche d'exercice et une cartouche inerte ?",
+            "a": "- Réelle : munition destinée à un tir effectif (projectile réellement propulsé)\n- Exercice : cartouche à blanc, sans projectile réel\n- Inerte : cartouche de manipulation utilisée pour l'instruction, sans danger"
+          },
+          {
+            "module": "Armement",
+            "q": "Quels sont les deux mécanismes qui composent le mécanisme de mise à feu ?",
+            "a": "Un mécanisme de détente et un mécanisme de percussion."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la différence entre une arme individuelle et une arme collective ?",
+            "a": "- Individuelle : employée par une seule personne\n- Collective : utilisation nécessitant au minimum deux personnes"
+          },
+          {
+            "module": "Armement",
+            "q": "De quoi se compose la désignation générale du calibre d'une arme ?",
+            "a": "Du calibre du projectile en mm + de la longueur de l'étui en mm + de la désignation du type de projectile."
+          },
+          {
+            "module": "Armement",
+            "q": "Quel est le mode de fonctionnement du HK416F ?",
+            "a": "Arme individuelle, automatique, fonctionnant par emprunt de gaz, à culasse rotative, tir coup par coup ou en rafales libres."
+          },
+          {
+            "module": "Armement",
+            "q": "Cite au moins 4 commandes ambidextres présentes sur le HK416F.",
+            "a": "Sélecteur de tir, verrou de chargeur, levier d'armement, levier arrêtoir de culasse."
+          },
+          {
+            "module": "Armement",
+            "q": "À quel moment l'arme est-elle considérée en stade 1 ?",
+            "a": "Après insertion du chargeur (arme approvisionnée / non chargée)."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelles vérifications doivent être effectuées avant de renvoyer l'ensemble mobile vers l'avant lors du retrait d'une cartouche ?",
+            "a": "Vérifier l'absence de munition en chambre, puis faire vérifier par un tiers."
+          },
+          {
+            "module": "Armement",
+            "q": "À quoi sert le zérotage ?",
+            "a": "À remettre les organes de visée en configuration neutre, avant de procéder au tir de réglage de l'arme."
+          },
+          {
+            "module": "Armement",
+            "q": "Quel est le rôle du point moyen lors d'un tir de réglage ?",
+            "a": "Il sert de référence pour effectuer le réglage de l'arme."
+          },
+          {
+            "module": "Armement",
+            "q": "Combien de rayures possède le canon du HK416F et dans quel sens tournent-elles ?",
+            "a": "6 rayures, rotation à droite."
+          }
+        ]
+      },
+      {
+        "title": "Série 4",
+        "items": [
+          {
+            "module": "Armement",
+            "q": "Citez les trois critères utilisés pour classer les armes à feu.",
+            "a": "Mode d'utilisation, conformation, mode de fonctionnement."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la différence entre une arme de poing, une arme d'épaule et une arme sur affût ?",
+            "a": "- De poing : la forme permet de tenir l'arme à la main\n- D'épaule : maintien par une crosse pour épauler l'arme\n- Sur affût : arme en support, stabilité assurée par son poids/l'affût"
+          },
+          {
+            "module": "Armement",
+            "q": "Quels sont les trois types de visée enseignés et lequel est propre à chaque arme ?",
+            "a": "Standard, mixte, fantôme. La visée conforme (mode propre à chaque arme) est une notion distincte, propre à chaque arme."
+          },
+          {
+            "module": "Armement",
+            "q": "Lors du tir, quelles sont les deux actions indispensables pour rechercher l'immobilité ?",
+            "a": "Maintenir correctement l'arme ; arrêter la respiration au moment de l'action du doigt sur la détente."
+          },
+          {
+            "module": "Armement",
+            "q": "Lors du mouvement arrière du HK416F, quelles sont les opérations réalisées jusqu'à l'éjection de l'étui ?",
+            "a": "L'expansion des gaz agit sur le piston et la tige de piston, qui repoussent l'ensemble mobile et réarment le marteau ; la griffe de l'extracteur, engagée dans la gorge de l'étui, entraîne ce dernier ; arrivé devant la fenêtre, il est projeté sous la pression de l'éjecteur."
+          },
+          {
+            "module": "Armement",
+            "q": "Quel est le rôle du déflecteur sur le HK416F ?",
+            "a": "Rejeter l'étui hors du visage d'un tireur gaucher."
+          },
+          {
+            "module": "Armement",
+            "q": "Citez les cinq personnes (ou fonctions) intervenant dans l'organisation d'une séance de tir.",
+            "a": "Directeur de tir, exécutants, moniteurs, cadre chargé des munitions, soutien sanitaire."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelle est la différence entre un guidon et une hausse sur le HK416F ?",
+            "a": "Le guidon rabattable n'est pas réglable (vissé sur le garde-main). La hausse rabattable est réglable en site et en direction (vissée sur la carcasse supérieure)."
+          },
+          {
+            "module": "Armement",
+            "q": "Que signifient les repères « R » et « L » présents sur la hausse ?",
+            "a": "R (Right) : visser amène le tir vers la droite. L (Left) : dévisser amène le tir vers la gauche."
+          },
+          {
+            "module": "Armement",
+            "q": "Combien mesure le déplacement du tir provoqué par un cran de réglage en direction, à 25 m et à 100 m ?",
+            "a": "0,7 cm à 25 m, soit 2,8 cm à 100 m."
+          },
+          {
+            "module": "Armement",
+            "q": "Que doit obligatoirement posséder un exécutant pour être autorisé à tirer lors d'une séance ?",
+            "a": "Le C.A.Ti. de l'arme utilisée et le carnet de tir renseigné."
+          },
+          {
+            "module": "Armement",
+            "q": "Pourquoi la culasse doit-elle être parfaitement verrouillée avant le départ du coup ?",
+            "a": "Pour assurer l'étanchéité culasse-canon (obturation) : un verrouillage incomplet entraînerait une perte de pression des gaz, source d'incidents de tir et de perte d'efficacité."
+          }
+        ]
+      },
+      {
+        "title": "Série 5",
+        "items": [
+          {
+            "module": "Armement",
+            "q": "Définis précisément ce qu'est une munition.",
+            "a": "Un objet conçu pour être utilisé dans une arme à feu, mis en œuvre ou lancé à la main, constitué au minimum d'une charge propulsive et d'un ou plusieurs projectiles."
+          },
+          {
+            "module": "Armement",
+            "q": "Explique la différence entre le chargement, l'approvisionnement et le transport.",
+            "a": "Le chargement est l'ensemble des 6 opérations préliminaires à la mise en place de la cartouche dans la chambre. L'approvisionnement et le transport en sont deux étapes parmi ces six (respectivement la 2e et la 3e), et non des synonymes du chargement global."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelles sont les deux fonctions principales du mécanisme moteur d'une arme ?",
+            "a": "Générer le mouvement arrière (au départ du coup) et le mouvement avant (retour des pièces), formant le cycle de fonctionnement."
+          },
+          {
+            "module": "Armement",
+            "q": "Explique le rôle de l'extracteur et de l'éjecteur.",
+            "a": "L'extracteur retire l'étui de la chambre (accroché à sa gorge). L'éjecteur expulse ensuite l'étui hors de l'arme."
+          },
+          {
+            "module": "Armement",
+            "q": "À quoi sert l'accommodation lors de la visée ?",
+            "a": "À voir le guidon parfaitement net en visant."
+          },
+          {
+            "module": "Armement",
+            "q": "Quelles sont les conditions permettant d'obtenir un tir juste ?",
+            "a": "Un tir précis (impacts groupés) ET réglé (point moyen au centre de la cible), obtenus grâce à l'immobilité et une action maîtrisée sur la détente."
+          },
+          {
+            "module": "Armement",
+            "q": "Lors d'une séance de tir, quelles sont les missions du cadre chargé des munitions ?",
+            "a": "Assurer le suivi de l'armement et des munitions."
+          },
+          {
+            "module": "Armement",
+            "q": "Donne les caractéristiques suivantes du HK416F : calibre ; masse en ordre de combat ; capacité du chargeur ; portée pratique.",
+            "a": "- Calibre : 5,56 x 45 mm\n- Masse en ordre de combat : 4,375 kg\n- Capacité du chargeur : 30 cartouches\n- Portée pratique : 300 m"
+          },
+          {
+            "module": "Armement",
+            "q": "Décris, dans l'ordre, les différentes étapes du contrôle de chargement.",
+            "a": "Maintenir l'arme en direction non dangereuse ; tirer légèrement le levier d'armement (~2 cm) ; contrôler la présence d'une cartouche en chambre (visuellement/tactilement) ; relâcher le levier sans le raccompagner ; en cas de doute sur le chargeur, le retirer, le vérifier, puis le réinsérer."
+          },
+          {
+            "module": "Armement",
+            "q": "Décris, dans l'ordre, la procédure complète de retrait d'une cartouche.",
+            "a": "Maintenir l'arme en direction non dangereuse ; s'assurer que la sûreté est mise ; retirer le chargeur et le ranger ; mettre l'arme en appui pectoral ; orienter la fenêtre d'éjection vers le sol ; tirer le levier d'armement, verrouiller l'ensemble mobile en arrière puis le ramener vers l'avant en récupérant la cartouche éjectée ; vérifier l'absence de munition en chambre puis faire vérifier par un tiers ; renvoyer l'ensemble mobile vers l'avant à l'aide de l'arrêtoir de culasse (arme en stade 0)."
+          },
+          {
+            "module": "Armement",
+            "q": "Explique la procédure de zérotage en site de la hausse du HK416F.",
+            "a": "Amener la hausse en butée basse, compter le nombre de clics jusqu'en butée haute, diviser ce nombre par 2, puis effectuer le nombre de clics obtenu en direction de la butée opposée."
+          },
+          {
+            "module": "Armement",
+            "q": "Donne les quatre règles fondamentales de sécurité sans en oublier une seule.",
+            "a": "- 1. Une arme doit toujours être considérée comme chargée\n- 2. Ne jamais pointer le canon sur quelque chose que l'on ne veut pas détruire\n- 3. Garder l'index hors de la détente tant que les organes de visée ne sont pas sur l'objectif\n- 4. Être sûr de son objectif et de son environnement"
+          }
+        ]
+      },
+      {
+        "title": "Bonus",
+        "items": [
+          {
+            "module": "Armement",
+            "q": "(Bonus) Pourquoi le HK416F est-il adapté aussi bien aux droitiers qu'aux gauchers ?",
+            "a": "Parce qu'il est doté de commandes ambidextres (sélecteur, verrou de chargeur, levier d'armement, arrêtoir de culasse) et d'un déflecteur qui rejette l'étui hors du visage d'un tireur gaucher."
+          },
+          {
+            "module": "Armement",
+            "q": "(Bonus) Pourquoi ne faut-il jamais raccompagner le levier d'armement lors du contrôle de chargement ?",
+            "a": "Parce que le relâcher naturellement (sous l'action du ressort récupérateur) garantit un verrouillage correct de la culasse ; le raccompagner à la main risquerait de ne pas assurer une fermeture complète et fiable."
+          },
+          {
+            "module": "Armement",
+            "q": "(Bonus) Quelle pièce neutralise le HK416F lorsqu'elle est retirée ?",
+            "a": "L'ensemble mobile (pièce de sécurité)."
+          },
+          {
+            "module": "Armement",
+            "q": "(Bonus) Quelle est la différence entre stade 0, stade 1 et stade 2 ?",
+            "a": "- Stade 0 : arme non approvisionnée / non chargée\n- Stade 1 : arme approvisionnée / non chargée (chargeur inséré, pas de mouvement de charge)\n- Stade 2 : arme approvisionnée / chargée (après le mouvement de charge, cartouche en chambre)"
+          },
+          {
+            "module": "Armement",
+            "q": "(Bonus) À quoi sert le Certificat d'Aptitude au Tir (C.A.Ti.) ?",
+            "a": "Il atteste que le tireur a reçu l'instruction nécessaire à la pratique du tir ; document individuel, formalisé par une attestation signée par l'intéressé et l'autorité responsable."
           }
         ]
       }
@@ -1957,6 +2302,74 @@ const MODULES = [
       {
         "title": "Série 1",
         "items": [
+          {
+            "module": "Armement",
+            "text": "Une arme à feu est un instrument destiné à propulser un ___ grâce à une déflagration de ___.",
+            "blanks": [
+              "projectile",
+              "poudre"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le mécanisme de mise à feu comprend un mécanisme de ___ et un mécanisme de ___.",
+            "blanks": [
+              "détente",
+              "percussion"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "La sûreté est un mécanisme manœuvré par le ___ alors que la sécurité fonctionne sans son ___.",
+            "blanks": [
+              "tireur",
+              "intervention"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le chargement comprend successivement : ___, ___, ___, ___, ___, ___.",
+            "blanks": [
+              "Emmagasinage",
+              "Approvisionnement",
+              "Transport",
+              "Distribution",
+              "Présentation",
+              "Introduction"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le HK416F fonctionne par emprunt des ___ agissant sur un ___.",
+            "blanks": [
+              "gaz",
+              "piston"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Après insertion du chargeur, l'arme est en stade ___. Après un mouvement de charge, elle est en stade ___.",
+            "blanks": [
+              "1",
+              "2"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Les organes de visée mécaniques du HK416F sont le ___ rabattable et la ___ rabattable.",
+            "blanks": [
+              "guidon",
+              "hausse"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le point moyen est le centre du ___ obtenu lors d'un tir de réglage de ___ cartouches.",
+            "blanks": [
+              "triangle",
+              "3"
+            ]
+          },
           {
             "module": "Armement",
             "text": "L'expansion des gaz en passant par l'emprunt des gaz agit sur le ___ et la ___ qui repousse l'___ et entraîne le ___ qui se réarme. La ___ engagée dans la gorge de l'étui entraîne ce dernier. Lorsque l'étui se présente devant la ___, il est projeté sous la pression de l'___. Le ___ permet de rejeter l'étui hors du visage d'un tireur gaucher.",
@@ -1969,6 +2382,282 @@ const MODULES = [
               "fenêtre",
               "éjecteur",
               "déflecteur"
+            ]
+          },
+        ]
+      },
+      {
+        "title": "Série 2",
+        "items": [
+          {
+            "module": "Armement",
+            "text": "Le calibre correspond au ___ du canon pris sur le ___.",
+            "blanks": [
+              "diamètre intérieur",
+              "plein des rayures"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Les armes non automatiques fonctionnent grâce à la ___ du tireur.",
+            "blanks": [
+              "force musculaire"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Les armes semi-automatiques tirent au ___.",
+            "blanks": [
+              "coup par coup"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le HK416F possède une ___ et fonctionne par ___.",
+            "blanks": [
+              "culasse rotative",
+              "emprunt des gaz"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le ___ vérifie que le personnel porte les ___ adaptés.",
+            "blanks": [
+              "directeur de tir",
+              "éléments de protection individuelle"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le contrôle de chargement peut être réalisé ___, ou lorsqu'il existe ___.",
+            "blanks": [
+              "à l'initiative du tireur",
+              "un doute sur l'état de l'arme"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le chargeur du HK416F contient ___ cartouches de calibre ___.",
+            "blanks": [
+              "30",
+              "5,56 x 45 mm"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le ___ permet d'éloigner l'étui éjecté du visage d'un tireur ___.",
+            "blanks": [
+              "déflecteur",
+              "gaucher"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Série 3",
+        "items": [
+          {
+            "module": "Armement",
+            "text": "L'___ est l'œil qui dirige la vision et il reste ouvert pendant le tir.",
+            "blanks": [
+              "œil directeur"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "La ___ passe par le centre de l'___ et le milieu du sommet du ___.",
+            "blanks": [
+              "ligne de mire",
+              "œilleton",
+              "guidon"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Pour un tir précis, rattraper le ___ puis exercer une ___.",
+            "blanks": [
+              "jeu de détente",
+              "pression maîtrisée et constante"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le HK416F existe en version ___ et version ___.",
+            "blanks": [
+              "compacte",
+              "standard"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Portée max ___ mètres, portée pratique ___ mètres.",
+            "blanks": [
+              "2500",
+              "300"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le numéro de série est présent sur la ___, la ___ et le ___ (pièce de manœuvre).",
+            "blanks": [
+              "carcasse sup./inf.",
+              "tête de culasse",
+              "transporteur"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Sous l'action du ___, l'ensemble mobile introduit une nouvelle cartouche.",
+            "blanks": [
+              "ressort récupérateur"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le point moyen correspond au centre du ___ obtenu à partir d'un tir de réglage de ___ cartouches.",
+            "blanks": [
+              "triangle",
+              "3"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Série 4",
+        "items": [
+          {
+            "module": "Armement",
+            "text": "Une cartouche est composée de ___, de ___, de ___ et de ___.",
+            "blanks": [
+              "l'étui",
+              "la balle",
+              "la charge",
+              "l'amorce"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "L'___ assure l'étanchéité entre la culasse et le canon afin d'éviter une ___.",
+            "blanks": [
+              "obturation",
+              "perte de pression des gaz"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Les deux mouvements d'un cycle sont un mouvement ___ suivi d'un mouvement ___.",
+            "blanks": [
+              "arrière",
+              "avant"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le HK416F possède ___ rails Picatinny et une crosse réglable sur ___ positions.",
+            "blanks": [
+              "4",
+              "6"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le canon mesure ___ mm ; la longueur totale varie de ___ mm à ___ mm selon la crosse.",
+            "blanks": [
+              "368",
+              "830",
+              "931"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Lors du retrait d'une cartouche, la ___ doit être orientée vers le sol et la ___ doit être mise.",
+            "blanks": [
+              "fenêtre d'éjection",
+              "sûreté"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Pour le réglage en site, amener la hausse en ___ puis compter le nombre de clics jusqu'à la ___.",
+            "blanks": [
+              "butée basse",
+              "butée haute"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le directeur de tir veille à la présence des ___ pendant toute la durée du tir.",
+            "blanks": [
+              "moyens de premiers secours"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Série 5",
+        "items": [
+          {
+            "module": "Armement",
+            "text": "Une arme automatique tire par ___ ; une arme semi-automatique tire au ___.",
+            "blanks": [
+              "rafales",
+              "coup par coup"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "La percussion est rendue possible grâce au ___ ; le départ du coup est commandé par le ___.",
+            "blanks": [
+              "mécanisme de percussion",
+              "mécanisme de détente"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le HK416F fonctionne grâce à l'___ qui agissent sur un ___ pour repousser l'___.",
+            "blanks": [
+              "emprunt des gaz",
+              "piston",
+              "ensemble mobile"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Lors du mouvement arrière, le ___ est réarmé tandis que l'étui est retiré par la ___.",
+            "blanks": [
+              "marteau",
+              "griffe de l'extracteur"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le ___ est non réglable alors que la ___ est réglable en site et en direction.",
+            "blanks": [
+              "guidon",
+              "hausse"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le ___ consiste à remettre les organes de visée en configuration neutre avant le tir de réglage.",
+            "blanks": [
+              "zérotage"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Pour le réglage en hauteur, ___ fait descendre le tir ; ___ fait monter le tir.",
+            "blanks": [
+              "dévisser",
+              "visser"
+            ]
+          },
+          {
+            "module": "Armement",
+            "text": "Le point moyen est le centre du ___ obtenu avec ___ cartouches et sert de référence pour effectuer le réglage de l'arme.",
+            "blanks": [
+              "triangle",
+              "3"
             ]
           }
         ]
@@ -1988,19 +2677,19 @@ const MODULES = [
               },
               {
                 "num": 2,
-                "answer": "Levier d'armement"
-              },
-              {
-                "num": 3,
                 "answer": "Ensemble mobile"
               },
               {
+                "num": 3,
+                "answer": "Levier d'armement"
+              },
+              {
                 "num": 4,
-                "answer": "Crosse"
+                "answer": "Carcasse inférieure"
               },
               {
                 "num": 5,
-                "answer": "Chargeur"
+                "answer": "Le chargeur"
               },
               {
                 "num": 6,
@@ -2142,7 +2831,7 @@ const MODULES = [
           {
             "module": "Armement",
             "name": "Mécanisme de détente",
-            "image": "img/mécanisme de détente.png",
+            "image": "",
             "legend": [
               {
                 "num": 1,
