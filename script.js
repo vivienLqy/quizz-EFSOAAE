@@ -10,29 +10,33 @@ let nav = { view: 'home', moduleIndex: 0, type: 'qcm', seriesIndex: 0, theme: 'a
 const TYPE_LABELS = { qcm: 'QCM', qcr: 'QCR', trou: 'Texte à trou', schema: 'Schéma à compléter' };
 const TYPE_ORDER = ['qcm', 'qcr', 'trou', 'schema'];
 
-function normalize(s){
-  return (s || '').toString().trim().toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+function normalize(s) {
+  let x = (s || '').toString().trim().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // enlève les accents
+  x = x.replace(/[-']/g, ' ');       // tirets et apostrophes -> espace
+  x = x.replace(/\s+/g, ' ').trim(); // espaces multiples
+  x = x.replace(/^(le|la|les|l|un|une|des)\s+/, ''); // retire un article en tête
+  return x;
 }
 
 /* Parties sélectionnables d'un module (ex: "Armement", "Topographie"). Définies explicitement
    dans mod.parts — si ce tableau est vide, le module n'a pas d'étape de choix de partie
    (comportement classique : tout s'affiche, comme le Module 1). */
-function getParts(mod){
+function getParts(mod) {
   return mod.parts || [];
 }
 
-function themeMatch(itemModule){
+function themeMatch(itemModule) {
   return nav.theme === 'all' || itemModule === nav.theme;
 }
 
-function firstAvailableType(mod){
+function firstAvailableType(mod) {
   return TYPE_ORDER.find(t => mod[t].length > 0) || 'qcm';
 }
 
-function shuffle(arr){
+function shuffle(arr) {
   const a = arr.slice();
-  for(let i = a.length - 1; i > 0; i--){
+  for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
@@ -54,19 +58,19 @@ const state = MODULES.map(mod => ({
   }))
 }));
 
-function currentModule(){ return MODULES[nav.moduleIndex]; }
-function currentModState(){ return state[nav.moduleIndex]; }
+function currentModule() { return MODULES[nav.moduleIndex]; }
+function currentModState() { return state[nav.moduleIndex]; }
 
 /* ---------------- TOP TAB BAR (type d'exercice) ---------------- */
-function renderTabbar(){
+function renderTabbar() {
   const tabbar = document.getElementById('tabbar');
   tabbar.innerHTML = '';
-  if(nav.view !== 'module'){ return; }
+  if (nav.view !== 'module') { return; }
   const mod = currentModule();
-  if(getParts(mod).length > 0 && nav.theme === null){ return; } // encore sur l'écran de choix de partie
+  if (getParts(mod).length > 0 && nav.theme === null) { return; } // encore sur l'écran de choix de partie
   TYPE_ORDER.forEach(type => {
     const list = mod[type];
-    if(list.length === 0){ return; } // pas de contenu de ce type pour ce module : pas d'onglet
+    if (list.length === 0) { return; } // pas de contenu de ce type pour ce module : pas d'onglet
     const btn = document.createElement('button');
     btn.className = 'tab' + (nav.type === type ? ' active' : '');
     btn.innerHTML = `<span>${TYPE_LABELS[type]}</span><span class="tab-score">${list.length}</span>`;
@@ -81,7 +85,7 @@ function renderTabbar(){
 }
 
 /* ---------------- VUE ACCUEIL : liste des modules ---------------- */
-function renderHome(){
+function renderHome() {
   const content = document.getElementById('content');
   content.innerHTML = '';
 
@@ -122,7 +126,7 @@ function renderHome(){
 }
 
 /* ---------------- VUE MODULE ---------------- */
-function renderSeriesPills(list, activeIndex, scoreLabelFn, onSelect){
+function renderSeriesPills(list, activeIndex, scoreLabelFn, onSelect) {
   const wrap = document.createElement('div');
   wrap.className = 'series-tabbar';
   list.forEach((s, i) => {
@@ -139,14 +143,14 @@ function renderSeriesPills(list, activeIndex, scoreLabelFn, onSelect){
 /* Écran affiché quand on entre dans un module qui a des parties (mod.parts non vide)
    et qu'aucune partie n'a encore été choisie : un menu pour choisir "Armement",
    "Topographie", etc. avant de voir le moindre exercice. */
-function renderPartChooser(mod, parts){
+function renderPartChooser(mod, parts) {
   const content = document.getElementById('content');
   content.innerHTML = '';
 
   const back = document.createElement('button');
   back.className = 'back-btn';
   back.textContent = '← Retour aux modules';
-  back.onclick = () => { nav.view = 'home'; renderAll(); window.scrollTo({top:0, behavior:'smooth'}); };
+  back.onclick = () => { nav.view = 'home'; renderAll(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
   content.appendChild(back);
 
   const title = document.createElement('h2');
@@ -173,7 +177,7 @@ function renderPartChooser(mod, parts){
       nav.type = firstAvailableType(mod);
       nav.seriesIndex = 0;
       renderAll();
-      window.scrollTo({top:0, behavior:'smooth'});
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     card.appendChild(btn);
     grid.appendChild(card);
@@ -183,7 +187,7 @@ function renderPartChooser(mod, parts){
 
 /* Sélecteur compact affiché en haut d'un module à parties, une fois une partie choisie,
    pour permettre d'en changer sans repasser par l'accueil. */
-function renderPartSwitcher(mod, parts){
+function renderPartSwitcher(mod, parts) {
   const wrap = document.createElement('div');
   wrap.className = 'series-tabbar theme-tabbar';
 
@@ -208,13 +212,13 @@ function renderPartSwitcher(mod, parts){
   return wrap;
 }
 
-function renderModule(){
+function renderModule() {
   const mod = currentModule();
   const parts = getParts(mod);
 
-  if(parts.length === 0){
+  if (parts.length === 0) {
     nav.theme = 'all'; // module sans sous-parties : comportement classique, rien à filtrer
-  } else if(nav.theme === null){
+  } else if (nav.theme === null) {
     renderPartChooser(mod, parts);
     return;
   }
@@ -226,10 +230,10 @@ function renderModule(){
   back.className = 'back-btn';
   back.textContent = parts.length > 0 ? '← Changer de partie' : '← Retour aux modules';
   back.onclick = () => {
-    if(parts.length > 0){ nav.theme = null; }
+    if (parts.length > 0) { nav.theme = null; }
     else { nav.view = 'home'; }
     renderAll();
-    window.scrollTo({top:0, behavior:'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   content.appendChild(back);
 
@@ -243,13 +247,13 @@ function renderModule(){
   sub.textContent = TYPE_LABELS[nav.type] + (mod[nav.type].length ? ' — choisis une série ci-dessous.' : '');
   content.appendChild(sub);
 
-  if(parts.length > 1){
+  if (parts.length > 1) {
     content.appendChild(renderPartSwitcher(mod, parts));
   }
 
   const list = mod[nav.type];
 
-  if(list.length === 0){
+  if (list.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-note';
     empty.textContent = `Aucun contenu "${TYPE_LABELS[nav.type]}" pour ce module pour l'instant. Il sera ajouté ici.`;
@@ -257,37 +261,37 @@ function renderModule(){
     return;
   }
 
-  if(nav.seriesIndex >= list.length) nav.seriesIndex = 0;
+  if (nav.seriesIndex >= list.length) nav.seriesIndex = 0;
 
   let scoreLabelFn;
-  if(nav.type === 'qcm'){
+  if (nav.type === 'qcm') {
     scoreLabelFn = (i) => {
       const st = currentModState().qcm[i];
-      if(!st.corrected) return null;
+      if (!st.corrected) return null;
       const q = mod.qcm[i];
-      const idxs = q.questions.map((qq,qi)=>qi).filter(qi => themeMatch(q.questions[qi].module));
-      const score = idxs.reduce((acc,qi)=> acc + (st.answers[qi]===q.questions[qi].correct?1:0), 0);
+      const idxs = q.questions.map((qq, qi) => qi).filter(qi => themeMatch(q.questions[qi].module));
+      const score = idxs.reduce((acc, qi) => acc + (st.answers[qi] === q.questions[qi].correct ? 1 : 0), 0);
       return `${score}/${idxs.length}`;
     };
-  } else if(nav.type === 'trou'){
+  } else if (nav.type === 'trou') {
     scoreLabelFn = (i) => {
       const st = currentModState().trou[i];
-      if(!st.corrected) return null;
+      if (!st.corrected) return null;
       const s = mod.trou[i];
-      let total=0, ok=0;
-      s.items.forEach((it, ii) => { if(!themeMatch(it.module)) return; it.blanks.forEach((b, bi) => { total++; if(normalize(st.answers[ii][bi])===normalize(b)) ok++; }); });
+      let total = 0, ok = 0;
+      s.items.forEach((it, ii) => { if (!themeMatch(it.module)) return; it.blanks.forEach((b, bi) => { total++; if (normalize(st.answers[ii][bi]) === normalize(b)) ok++; }); });
       return `${ok}/${total}`;
     };
-  } else if(nav.type === 'schema'){
+  } else if (nav.type === 'schema') {
     scoreLabelFn = (i) => {
       const st = currentModState().schema[i];
-      if(!st.corrected) return null;
+      if (!st.corrected) return null;
       const s = mod.schema[i];
-      let total=0, ok=0;
+      let total = 0, ok = 0;
       s.items.forEach((it, ii) => {
-        if(!themeMatch(it.module)) return;
-        if(it.name){ total++; if(normalize(st.nameAnswers[ii]) === normalize(it.name)) ok++; }
-        it.legend.forEach((l, li) => { total++; if(normalize(st.answers[ii][li])===normalize(l.answer)) ok++; });
+        if (!themeMatch(it.module)) return;
+        if (it.name) { total++; if (normalize(st.nameAnswers[ii]) === normalize(it.name)) ok++; }
+        it.legend.forEach((l, li) => { total++; if (normalize(st.answers[ii][li]) === normalize(l.answer)) ok++; });
       });
       return `${ok}/${total}`;
     };
@@ -300,21 +304,21 @@ function renderModule(){
     renderAll();
   }));
 
-  if(nav.type === 'qcm') renderQcmSeries(content, mod, nav.seriesIndex);
-  else if(nav.type === 'qcr') renderQcrSeries(content, mod, nav.seriesIndex);
-  else if(nav.type === 'trou') renderTrouSeries(content, mod, nav.seriesIndex);
-  else if(nav.type === 'schema') renderSchemaSeries(content, mod, nav.seriesIndex);
+  if (nav.type === 'qcm') renderQcmSeries(content, mod, nav.seriesIndex);
+  else if (nav.type === 'qcr') renderQcrSeries(content, mod, nav.seriesIndex);
+  else if (nav.type === 'trou') renderTrouSeries(content, mod, nav.seriesIndex);
+  else if (nav.type === 'schema') renderSchemaSeries(content, mod, nav.seriesIndex);
 }
 
 /* ---------------- QCM ---------------- */
-const LETTERS = ['A','B','C','D'];
+const LETTERS = ['A', 'B', 'C', 'D'];
 
-function renderQcmSeries(content, mod, seriesIndex){
+function renderQcmSeries(content, mod, seriesIndex) {
   const series = mod.qcm[seriesIndex];
   const st = currentModState().qcm[seriesIndex];
   const visible = series.questions.map((q, qi) => qi).filter(qi => themeMatch(series.questions[qi].module));
 
-  if(visible.length === 0){
+  if (visible.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-note';
     empty.textContent = `Aucune question "${nav.theme}" dans cette série.`;
@@ -329,14 +333,14 @@ function renderQcmSeries(content, mod, seriesIndex){
 
     const meta = document.createElement('div');
     meta.className = 'qmeta';
-    meta.innerHTML = `<span class="qnum">Question ${qi+1}</span>
+    meta.innerHTML = `<span class="qnum">Question ${qi + 1}</span>
       <span class="tag-group">
         <span class="tag module">${q.module}</span>
-        <span class="tag ${q.type}">${q.type==='false' ? 'Trouve la fausse' : 'Trouve la bonne'}</span>
+        <span class="tag ${q.type}">${q.type === 'false' ? 'Trouve la fausse' : 'Trouve la bonne'}</span>
       </span>`;
     card.appendChild(meta);
 
-    if(q.stem){
+    if (q.stem) {
       const stem = document.createElement('p');
       stem.className = 'stem';
       stem.textContent = q.stem;
@@ -346,7 +350,7 @@ function renderQcmSeries(content, mod, seriesIndex){
     q.options.forEach((opt, oi) => {
       const label = document.createElement('label');
       label.className = 'option';
-      if(st.corrected) label.classList.add('locked');
+      if (st.corrected) label.classList.add('locked');
 
       const input = document.createElement('input');
       input.type = 'radio';
@@ -366,9 +370,9 @@ function renderQcmSeries(content, mod, seriesIndex){
       label.appendChild(letterSpan);
       label.appendChild(textSpan);
 
-      if(st.corrected){
-        if(oi === q.correct) label.classList.add('correct');
-        else if(st.answers[qi] === oi) label.classList.add('incorrect');
+      if (st.corrected) {
+        if (oi === q.correct) label.classList.add('correct');
+        else if (st.answers[qi] === oi) label.classList.add('incorrect');
       }
 
       card.appendChild(label);
@@ -403,8 +407,8 @@ function renderQcmSeries(content, mod, seriesIndex){
 
   const scorePill = document.createElement('span');
   scorePill.className = 'score-pill' + (st.corrected ? ' show' : '');
-  if(st.corrected){
-    const score = visible.reduce((acc,qi)=> acc + (st.answers[qi]===series.questions[qi].correct?1:0), 0);
+  if (st.corrected) {
+    const score = visible.reduce((acc, qi) => acc + (st.answers[qi] === series.questions[qi].correct ? 1 : 0), 0);
     scorePill.textContent = `Score : ${score} / ${visible.length}`;
   }
   actionBar.appendChild(scorePill);
@@ -413,11 +417,11 @@ function renderQcmSeries(content, mod, seriesIndex){
 }
 
 /* ---------------- QCR ---------------- */
-function renderQcrSeries(content, mod, seriesIndex){
+function renderQcrSeries(content, mod, seriesIndex) {
   const series = mod.qcr[seriesIndex];
   const visible = series.items.map((it, qi) => qi).filter(qi => themeMatch(series.items[qi].module));
 
-  if(visible.length === 0){
+  if (visible.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-note';
     empty.textContent = `Aucune question "${nav.theme}" dans cette série.`;
@@ -437,7 +441,7 @@ function renderQcrSeries(content, mod, seriesIndex){
 
     const stem = document.createElement('p');
     stem.className = 'stem';
-    stem.textContent = `${qi+1}. ${item.q}`;
+    stem.textContent = `${qi + 1}. ${item.q}`;
     card.appendChild(stem);
 
     const ta = document.createElement('textarea');
@@ -469,12 +473,12 @@ function renderQcrSeries(content, mod, seriesIndex){
      "blanks": ["réponse1", "réponse2"]           // une réponse par "___", dans l'ordre
    }
 ------------------------------------------------- */
-function renderTrouSeries(content, mod, seriesIndex){
+function renderTrouSeries(content, mod, seriesIndex) {
   const series = mod.trou[seriesIndex];
   const st = currentModState().trou[seriesIndex];
   const visible = series.items.map((it, ii) => ii).filter(ii => themeMatch(series.items[ii].module));
 
-  if(visible.length === 0){
+  if (visible.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-note';
     empty.textContent = `Aucun texte "${nav.theme}" dans cette série.`;
@@ -489,7 +493,7 @@ function renderTrouSeries(content, mod, seriesIndex){
 
     const meta = document.createElement('div');
     meta.className = 'qmeta';
-    meta.innerHTML = `<span class="qnum">Texte ${ii+1}</span><span class="tag-group"><span class="tag module">${item.module}</span></span>`;
+    meta.innerHTML = `<span class="qnum">Texte ${ii + 1}</span><span class="tag-group"><span class="tag module">${item.module}</span></span>`;
     card.appendChild(meta);
 
     const bank = document.createElement('div');
@@ -512,14 +516,14 @@ function renderTrouSeries(content, mod, seriesIndex){
     const parts = item.text.split('___');
     parts.forEach((part, pi) => {
       textP.appendChild(document.createTextNode(part));
-      if(pi < parts.length - 1){
+      if (pi < parts.length - 1) {
         const input = document.createElement('input');
         input.className = 'blank-input';
         input.type = 'text';
         input.value = st.answers[ii][pi] || '';
         input.disabled = st.corrected;
         input.oninput = () => { st.answers[ii][pi] = input.value; };
-        if(st.corrected){
+        if (st.corrected) {
           const ok = normalize(input.value) === normalize(item.blanks[pi]);
           input.classList.add(ok ? 'correct' : 'incorrect');
         }
@@ -528,12 +532,12 @@ function renderTrouSeries(content, mod, seriesIndex){
     });
     card.appendChild(textP);
 
-    if(st.corrected){
+    if (st.corrected) {
       const wrong = [];
       item.blanks.forEach((b, bi) => {
-        if(normalize(st.answers[ii][bi]) !== normalize(b)) wrong.push(b);
+        if (normalize(st.answers[ii][bi]) !== normalize(b)) wrong.push(b);
       });
-      if(wrong.length){
+      if (wrong.length) {
         const hint = document.createElement('span');
         hint.className = 'blank-hint';
         hint.textContent = 'Réponse(s) attendue(s) : ' + wrong.join(' · ');
@@ -571,9 +575,9 @@ function renderTrouSeries(content, mod, seriesIndex){
 
   const scorePill = document.createElement('span');
   scorePill.className = 'score-pill' + (st.corrected ? ' show' : '');
-  if(st.corrected){
-    let total=0, ok=0;
-    visible.forEach(ii => { series.items[ii].blanks.forEach((b, bi) => { total++; if(normalize(st.answers[ii][bi])===normalize(b)) ok++; }); });
+  if (st.corrected) {
+    let total = 0, ok = 0;
+    visible.forEach(ii => { series.items[ii].blanks.forEach((b, bi) => { total++; if (normalize(st.answers[ii][bi]) === normalize(b)) ok++; }); });
     scorePill.textContent = `Score : ${ok} / ${total}`;
   }
   actionBar.appendChild(scorePill);
@@ -592,12 +596,12 @@ function renderTrouSeries(content, mod, seriesIndex){
      ]
    }
 -------------------------------------------------------- */
-function renderSchemaSeries(content, mod, seriesIndex){
+function renderSchemaSeries(content, mod, seriesIndex) {
   const series = mod.schema[seriesIndex];
   const st = currentModState().schema[seriesIndex];
   const visible = series.items.map((it, ii) => ii).filter(ii => themeMatch(series.items[ii].module));
 
-  if(visible.length === 0){
+  if (visible.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-note';
     empty.textContent = `Aucun schéma "${nav.theme}" dans cette série.`;
@@ -616,7 +620,7 @@ function renderSchemaSeries(content, mod, seriesIndex){
     card.appendChild(meta);
 
     const imgs = item.images || (item.image ? [item.image] : []);
-    if(imgs.length){
+    if (imgs.length) {
       imgs.forEach(src => {
         const imgWrap = document.createElement('div');
         imgWrap.className = 'schema-image-wrap';
@@ -626,7 +630,7 @@ function renderSchemaSeries(content, mod, seriesIndex){
         img.onclick = () => { window.open(src, '_blank'); };
         imgWrap.appendChild(img);
         item.legend.forEach(l => {
-          if(l.x == null || l.y == null) return; // pas de coordonnées : l'image porte déjà ses propres numéros
+          if (l.x == null || l.y == null) return; // pas de coordonnées : l'image porte déjà ses propres numéros
           const marker = document.createElement('div');
           marker.className = 'schema-marker';
           marker.style.left = l.x + '%';
@@ -646,7 +650,7 @@ function renderSchemaSeries(content, mod, seriesIndex){
       card.appendChild(imgWrap);
     }
 
-    if(item.name){
+    if (item.name) {
       const nameRow = document.createElement('div');
       nameRow.className = 'schema-name-row';
       const nameLabel = document.createElement('label');
@@ -658,12 +662,12 @@ function renderSchemaSeries(content, mod, seriesIndex){
       nameInput.value = st.nameAnswers[ii] || '';
       nameInput.disabled = st.corrected;
       nameInput.oninput = () => { st.nameAnswers[ii] = nameInput.value; };
-      if(st.corrected){
+      if (st.corrected) {
         const ok = normalize(nameInput.value) === normalize(item.name);
         nameInput.classList.add(ok ? 'correct' : 'incorrect');
       }
       nameRow.appendChild(nameInput);
-      if(st.corrected && normalize(nameInput.value) !== normalize(item.name)){
+      if (st.corrected && normalize(nameInput.value) !== normalize(item.name)) {
         const nameHint = document.createElement('span');
         nameHint.className = 'name-hint';
         nameHint.textContent = 'Nom attendu : ' + item.name;
@@ -689,7 +693,7 @@ function renderSchemaSeries(content, mod, seriesIndex){
       input.value = st.answers[ii][li] || '';
       input.disabled = st.corrected;
       input.oninput = () => { st.answers[ii][li] = input.value; };
-      if(st.corrected){
+      if (st.corrected) {
         const ok = normalize(input.value) === normalize(l.answer);
         input.classList.add(ok ? 'correct' : 'incorrect');
       }
@@ -699,12 +703,12 @@ function renderSchemaSeries(content, mod, seriesIndex){
     });
     card.appendChild(legend);
 
-    if(st.corrected){
+    if (st.corrected) {
       const wrong = [];
       item.legend.forEach((l, li) => {
-        if(normalize(st.answers[ii][li]) !== normalize(l.answer)) wrong.push(`${l.num}. ${l.answer}`);
+        if (normalize(st.answers[ii][li]) !== normalize(l.answer)) wrong.push(`${l.num}. ${l.answer}`);
       });
-      if(wrong.length){
+      if (wrong.length) {
         const hint = document.createElement('span');
         hint.className = 'blank-hint';
         hint.textContent = 'Réponse(s) attendue(s) : ' + wrong.join(' · ');
@@ -742,12 +746,12 @@ function renderSchemaSeries(content, mod, seriesIndex){
 
   const scorePill = document.createElement('span');
   scorePill.className = 'score-pill' + (st.corrected ? ' show' : '');
-  if(st.corrected){
-    let total=0, ok=0;
+  if (st.corrected) {
+    let total = 0, ok = 0;
     visible.forEach(ii => {
       const it = series.items[ii];
-      if(it.name){ total++; if(normalize(st.nameAnswers[ii]) === normalize(it.name)) ok++; }
-      it.legend.forEach((l, li) => { total++; if(normalize(st.answers[ii][li])===normalize(l.answer)) ok++; });
+      if (it.name) { total++; if (normalize(st.nameAnswers[ii]) === normalize(it.name)) ok++; }
+      it.legend.forEach((l, li) => { total++; if (normalize(st.answers[ii][li]) === normalize(l.answer)) ok++; });
     });
     scorePill.textContent = `Score : ${ok} / ${total}`;
   }
@@ -756,9 +760,9 @@ function renderSchemaSeries(content, mod, seriesIndex){
   content.appendChild(actionBar);
 }
 
-function renderAll(){
+function renderAll() {
   renderTabbar();
-  if(nav.view === 'home') renderHome();
+  if (nav.view === 'home') renderHome();
   else renderModule();
 }
 

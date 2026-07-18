@@ -1988,11 +1988,11 @@ const MODULES = [
               },
               {
                 "num": 2,
-                "answer": "Ensemble mobile"
+                "answer": "Levier d'armement"
               },
               {
                 "num": 3,
-                "answer": "Levier d'armement"
+                "answer": "Ensemble mobile"
               },
               {
                 "num": 4,
