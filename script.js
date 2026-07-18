@@ -30,11 +30,21 @@ function firstAvailableType(mod){
   return TYPE_ORDER.find(t => mod[t].length > 0) || 'qcm';
 }
 
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 /* État des réponses de l'utilisateur, par module / par type / par série */
 const state = MODULES.map(mod => ({
   qcm: mod.qcm.map(s => ({ answers: new Array(s.questions.length).fill(null), corrected: false })),
   trou: mod.trou.map(s => ({
     answers: s.items.map(it => new Array(it.blanks.length).fill('')),
+    wordBank: s.items.map(it => shuffle(it.blanks)),
     corrected: false
   })),
   schema: mod.schema.map(s => ({
@@ -56,6 +66,7 @@ function renderTabbar(){
   if(getParts(mod).length > 0 && nav.theme === null){ return; } // encore sur l'écran de choix de partie
   TYPE_ORDER.forEach(type => {
     const list = mod[type];
+    if(list.length === 0){ return; } // pas de contenu de ce type pour ce module : pas d'onglet
     const btn = document.createElement('button');
     btn.className = 'tab' + (nav.type === type ? ' active' : '');
     btn.innerHTML = `<span>${TYPE_LABELS[type]}</span><span class="tab-score">${list.length}</span>`;
@@ -366,6 +377,11 @@ function renderQcmSeries(content, mod, seriesIndex){
     content.appendChild(card);
   });
 
+  const preCorrectNote = document.createElement('p');
+  preCorrectNote.className = 'pre-correct-note';
+  preCorrectNote.textContent = 'Vérifie bien tes réponses avant de corriger !';
+  content.appendChild(preCorrectNote);
+
   const actionBar = document.createElement('div');
   actionBar.className = 'action-bar';
 
@@ -476,6 +492,20 @@ function renderTrouSeries(content, mod, seriesIndex){
     meta.innerHTML = `<span class="qnum">Texte ${ii+1}</span><span class="tag-group"><span class="tag module">${item.module}</span></span>`;
     card.appendChild(meta);
 
+    const bank = document.createElement('div');
+    bank.className = 'word-bank';
+    const bankLabel = document.createElement('span');
+    bankLabel.className = 'word-bank-label';
+    bankLabel.textContent = 'Mots à placer :';
+    bank.appendChild(bankLabel);
+    st.wordBank[ii].forEach(word => {
+      const chip = document.createElement('span');
+      chip.className = 'word-chip';
+      chip.textContent = word;
+      bank.appendChild(chip);
+    });
+    card.appendChild(bank);
+
     const textP = document.createElement('p');
     textP.className = 'trou-text';
 
@@ -514,6 +544,11 @@ function renderTrouSeries(content, mod, seriesIndex){
     content.appendChild(card);
   });
 
+  const preCorrectNote = document.createElement('p');
+  preCorrectNote.className = 'pre-correct-note';
+  preCorrectNote.textContent = 'Vérifie bien tes réponses avant de corriger !';
+  content.appendChild(preCorrectNote);
+
   const actionBar = document.createElement('div');
   actionBar.className = 'action-bar';
 
@@ -528,6 +563,7 @@ function renderTrouSeries(content, mod, seriesIndex){
   resetBtn.textContent = 'Réinitialiser';
   resetBtn.onclick = () => {
     st.answers = series.items.map(it => new Array(it.blanks.length).fill(''));
+    st.wordBank = series.items.map(it => shuffle(it.blanks));
     st.corrected = false;
     renderAll();
   };
@@ -579,32 +615,6 @@ function renderSchemaSeries(content, mod, seriesIndex){
     meta.innerHTML = `<span class="tag-group"><span class="tag module">${item.module}</span></span>`;
     card.appendChild(meta);
 
-    if(item.name){
-      const nameRow = document.createElement('div');
-      nameRow.className = 'schema-name-row';
-      const nameLabel = document.createElement('label');
-      nameLabel.textContent = 'Nom du schéma :';
-      nameRow.appendChild(nameLabel);
-      const nameInput = document.createElement('input');
-      nameInput.type = 'text';
-      nameInput.placeholder = 'Écris le nom de ce schéma...';
-      nameInput.value = st.nameAnswers[ii] || '';
-      nameInput.disabled = st.corrected;
-      nameInput.oninput = () => { st.nameAnswers[ii] = nameInput.value; };
-      if(st.corrected){
-        const ok = normalize(nameInput.value) === normalize(item.name);
-        nameInput.classList.add(ok ? 'correct' : 'incorrect');
-      }
-      nameRow.appendChild(nameInput);
-      if(st.corrected && normalize(nameInput.value) !== normalize(item.name)){
-        const nameHint = document.createElement('span');
-        nameHint.className = 'name-hint';
-        nameHint.textContent = 'Nom attendu : ' + item.name;
-        nameRow.appendChild(nameHint);
-      }
-      card.appendChild(nameRow);
-    }
-
     const imgs = item.images || (item.image ? [item.image] : []);
     if(imgs.length){
       imgs.forEach(src => {
@@ -634,6 +644,32 @@ function renderSchemaSeries(content, mod, seriesIndex){
       ph.textContent = 'Image du schéma à venir — complète la légende ci-dessous.';
       imgWrap.appendChild(ph);
       card.appendChild(imgWrap);
+    }
+
+    if(item.name){
+      const nameRow = document.createElement('div');
+      nameRow.className = 'schema-name-row';
+      const nameLabel = document.createElement('label');
+      nameLabel.textContent = 'Nom du schéma :';
+      nameRow.appendChild(nameLabel);
+      const nameInput = document.createElement('input');
+      nameInput.type = 'text';
+      nameInput.placeholder = 'Écris le nom de ce schéma...';
+      nameInput.value = st.nameAnswers[ii] || '';
+      nameInput.disabled = st.corrected;
+      nameInput.oninput = () => { st.nameAnswers[ii] = nameInput.value; };
+      if(st.corrected){
+        const ok = normalize(nameInput.value) === normalize(item.name);
+        nameInput.classList.add(ok ? 'correct' : 'incorrect');
+      }
+      nameRow.appendChild(nameInput);
+      if(st.corrected && normalize(nameInput.value) !== normalize(item.name)){
+        const nameHint = document.createElement('span');
+        nameHint.className = 'name-hint';
+        nameHint.textContent = 'Nom attendu : ' + item.name;
+        nameRow.appendChild(nameHint);
+      }
+      card.appendChild(nameRow);
     }
 
     const legend = document.createElement('div');
@@ -678,6 +714,11 @@ function renderSchemaSeries(content, mod, seriesIndex){
 
     content.appendChild(card);
   });
+
+  const preCorrectNote = document.createElement('p');
+  preCorrectNote.className = 'pre-correct-note';
+  preCorrectNote.textContent = 'Vérifie bien tes réponses avant de corriger !';
+  content.appendChild(preCorrectNote);
 
   const actionBar = document.createElement('div');
   actionBar.className = 'action-bar';

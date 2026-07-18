@@ -1953,7 +1953,27 @@ const MODULES = [
         ]
       }
     ],
-    "trou": [],
+    "trou": [
+      {
+        "title": "Série 1",
+        "items": [
+          {
+            "module": "Armement",
+            "text": "L'expansion des gaz en passant par l'emprunt des gaz agit sur le ___ et la ___ qui repousse l'___ et entraîne le ___ qui se réarme. La ___ engagée dans la gorge de l'étui entraîne ce dernier. Lorsque l'étui se présente devant la ___, il est projeté sous la pression de l'___. Le ___ permet de rejeter l'étui hors du visage d'un tireur gaucher.",
+            "blanks": [
+              "piston",
+              "tige de piston",
+              "ensemble mobile",
+              "marteau",
+              "griffe de l'extracteur",
+              "fenêtre",
+              "éjecteur",
+              "déflecteur"
+            ]
+          }
+        ]
+      }
+    ],
     "schema": [
       {
         "title": "Série 1",
@@ -2122,7 +2142,7 @@ const MODULES = [
           {
             "module": "Armement",
             "name": "Mécanisme de détente",
-            "image": "img/mécasnime de détente.png",
+            "image": "img/mécanisme de détente.png",
             "legend": [
               {
                 "num": 1,
