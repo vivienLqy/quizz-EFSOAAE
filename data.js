@@ -2681,7 +2681,7 @@ const MODULES = [
               },
               {
                 "num": 3,
-                "answer": "Ensemble mobilet"
+                "answer": "Ensemble mobile"
               },
               {
                 "num": 4,
