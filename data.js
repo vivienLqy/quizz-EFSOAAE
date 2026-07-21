@@ -2305,38 +2305,84 @@ const MODULES = [
           {
             "module": "Armement",
             "text": "Une arme à feu est un instrument destiné à propulser un ___ grâce à une déflagration de ___.",
+            "blanks": [
+              "projectile",
+              "poudre"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le mécanisme de mise à feu comprend un mécanisme de ___ et un mécanisme de ___.",
+            "blanks": [
+              "détente",
+              "percussion"
+            ]
           },
           {
             "module": "Armement",
             "text": "La sûreté est un mécanisme manœuvré par le ___ alors que la sécurité fonctionne sans son ___.",
+            "blanks": [
+              "tireur",
+              "intervention"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le chargement comprend successivement : ___, ___, ___, ___, ___, ___.",
+            "blanks": [
+              "Emmagasinage",
+              "Approvisionnement",
+              "Transport",
+              "Distribution",
+              "Présentation",
+              "Introduction"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le HK416F fonctionne par emprunt des ___ agissant sur un ___.",
+            "blanks": [
+              "gaz",
+              "piston"
+            ]
           },
           {
             "module": "Armement",
             "text": "Après insertion du chargeur, l'arme est en stade ___. Après un mouvement de charge, elle est en stade ___.",
+            "blanks": [
+              "1",
+              "2"
+            ]
           },
           {
             "module": "Armement",
             "text": "Les organes de visée mécaniques du HK416F sont le ___ rabattable et la ___ rabattable.",
+            "blanks": [
+              "guidon",
+              "hausse"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le point moyen est le centre du ___ obtenu lors d'un tir de réglage de ___ cartouches.",
+            "blanks": [
+              "triangle",
+              "3"
+            ]
           },
           {
             "module": "Armement",
             "text": "L'expansion des gaz en passant par l'emprunt des gaz agit sur le ___ et la ___ qui repousse l'___ et entraîne le ___ qui se réarme. La ___ engagée dans la gorge de l'étui entraîne ce dernier. Lorsque l'étui se présente devant la ___, il est projeté sous la pression de l'___. Le ___ permet de rejeter l'étui hors du visage d'un tireur gaucher.",
+            "blanks": [
+              "piston",
+              "tige de piston",
+              "ensemble mobile",
+              "marteau",
+              "griffe de l'extracteur",
+              "fenêtre",
+              "éjecteur",
+              "déflecteur"
+            ]
           },
         ]
       },
@@ -2346,34 +2392,64 @@ const MODULES = [
           {
             "module": "Armement",
             "text": "Le calibre correspond au ___ du canon pris sur le ___.",
+            "blanks": [
+              "diamètre intérieur",
+              "plein des rayures"
+            ]
           },
           {
             "module": "Armement",
             "text": "Les armes non automatiques fonctionnent grâce à la ___ du tireur.",
+            "blanks": [
+              "force musculaire"
+            ]
           },
           {
             "module": "Armement",
             "text": "Les armes semi-automatiques tirent au ___.",
+            "blanks": [
+              "coup par coup"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le HK416F possède une ___ et fonctionne par ___.",
+            "blanks": [
+              "culasse rotative",
+              "emprunt des gaz"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le ___ vérifie que le personnel porte les ___ adaptés.",
+            "blanks": [
+              "directeur de tir",
+              "éléments de protection individuelle"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le contrôle de chargement peut être réalisé ___, ou lorsqu'il existe ___.",
+            "blanks": [
+              "à l'initiative du tireur",
+              "un doute sur l'état de l'arme"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le chargeur du HK416F contient ___ cartouches de calibre ___.",
+            "blanks": [
+              "30",
+              "5,56 x 45 mm"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le ___ permet d'éloigner l'étui éjecté du visage d'un tireur ___.",
+            "blanks": [
+              "déflecteur",
+              "gaucher"
+            ]
           }
         ]
       },
@@ -2383,34 +2459,66 @@ const MODULES = [
           {
             "module": "Armement",
             "text": "L'___ est l'œil qui dirige la vision et il reste ouvert pendant le tir.",
+            "blanks": [
+              "œil directeur"
+            ]
           },
           {
             "module": "Armement",
             "text": "La ___ passe par le centre de l'___ et le milieu du sommet du ___.",
+            "blanks": [
+              "ligne de mire",
+              "œilleton",
+              "guidon"
+            ]
           },
           {
             "module": "Armement",
             "text": "Pour un tir précis, rattraper le ___ puis exercer une ___.",
+            "blanks": [
+              "jeu de détente",
+              "pression maîtrisée et constante"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le HK416F existe en version ___ et version ___.",
+            "blanks": [
+              "compacte",
+              "standard"
+            ]
           },
           {
             "module": "Armement",
             "text": "Portée max ___ mètres, portée pratique ___ mètres.",
+            "blanks": [
+              "2500",
+              "300"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le numéro de série est présent sur la ___, la ___ et le ___ (pièce de manœuvre).",
+            "blanks": [
+              "carcasse sup./inf.",
+              "tête de culasse",
+              "transporteur"
+            ]
           },
           {
             "module": "Armement",
             "text": "Sous l'action du ___, l'ensemble mobile introduit une nouvelle cartouche.",
+            "blanks": [
+              "ressort récupérateur"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le point moyen correspond au centre du ___ obtenu à partir d'un tir de réglage de ___ cartouches.",
+            "blanks": [
+              "triangle",
+              "3"
+            ]
           }
         ]
       },
@@ -2420,34 +2528,68 @@ const MODULES = [
           {
             "module": "Armement",
             "text": "Une cartouche est composée de ___, de ___, de ___ et de ___.",
+            "blanks": [
+              "l'étui",
+              "la balle",
+              "la charge",
+              "l'amorce"
+            ]
           },
           {
             "module": "Armement",
             "text": "L'___ assure l'étanchéité entre la culasse et le canon afin d'éviter une ___.",
+            "blanks": [
+              "obturation",
+              "perte de pression des gaz"
+            ]
           },
           {
             "module": "Armement",
             "text": "Les deux mouvements d'un cycle sont un mouvement ___ suivi d'un mouvement ___.",
+            "blanks": [
+              "arrière",
+              "avant"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le HK416F possède ___ rails Picatinny et une crosse réglable sur ___ positions.",
+            "blanks": [
+              "4",
+              "6"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le canon mesure ___ mm ; la longueur totale varie de ___ mm à ___ mm selon la crosse.",
+            "blanks": [
+              "368",
+              "830",
+              "931"
+            ]
           },
           {
             "module": "Armement",
             "text": "Lors du retrait d'une cartouche, la ___ doit être orientée vers le sol et la ___ doit être mise.",
+            "blanks": [
+              "fenêtre d'éjection",
+              "sûreté"
+            ]
           },
           {
             "module": "Armement",
             "text": "Pour le réglage en site, amener la hausse en ___ puis compter le nombre de clics jusqu'à la ___.",
+            "blanks": [
+              "butée basse",
+              "butée haute"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le directeur de tir veille à la présence des ___ pendant toute la durée du tir.",
+            "blanks": [
+              "moyens de premiers secours"
+            ]
           }
         ]
       },
@@ -2457,34 +2599,66 @@ const MODULES = [
           {
             "module": "Armement",
             "text": "Une arme automatique tire par ___ ; une arme semi-automatique tire au ___.",
+            "blanks": [
+              "rafales",
+              "coup par coup"
+            ]
           },
           {
             "module": "Armement",
             "text": "La percussion est rendue possible grâce au ___ ; le départ du coup est commandé par le ___.",
+            "blanks": [
+              "mécanisme de percussion",
+              "mécanisme de détente"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le HK416F fonctionne grâce à l'___ qui agissent sur un ___ pour repousser l'___.",
+            "blanks": [
+              "emprunt des gaz",
+              "piston",
+              "ensemble mobile"
+            ]
           },
           {
             "module": "Armement",
             "text": "Lors du mouvement arrière, le ___ est réarmé tandis que l'étui est retiré par la ___.",
+            "blanks": [
+              "marteau",
+              "griffe de l'extracteur"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le ___ est non réglable alors que la ___ est réglable en site et en direction.",
+            "blanks": [
+              "guidon",
+              "hausse"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le ___ consiste à remettre les organes de visée en configuration neutre avant le tir de réglage.",
+            "blanks": [
+              "zérotage"
+            ]
           },
           {
             "module": "Armement",
             "text": "Pour le réglage en hauteur, ___ fait descendre le tir ; ___ fait monter le tir.",
+            "blanks": [
+              "dévisser",
+              "visser"
+            ]
           },
           {
             "module": "Armement",
             "text": "Le point moyen est le centre du ___ obtenu avec ___ cartouches et sert de référence pour effectuer le réglage de l'arme.",
+            "blanks": [
+              "triangle",
+              "3"
+            ]
           }
         ]
       }
