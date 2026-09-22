@@ -2086,7 +2086,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Topographie - Série 2",
         "questions": [
           {
@@ -2231,7 +2231,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Transmission - Série 1",
         "questions": [
           {
@@ -2376,7 +2376,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Transmission - Série 2",
         "questions": [
           {
@@ -2521,7 +2521,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "TBCA - Série 1",
         "questions": [
           {
@@ -2666,7 +2666,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "TBCA - Série 2",
         "questions": [
           {
@@ -2811,7 +2811,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 1",
         "questions": [
           {
@@ -2933,7 +2933,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 2",
         "questions": [
           {
@@ -3055,7 +3055,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 3",
         "questions": [
           {
@@ -3177,7 +3177,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 4",
         "questions": [
           {
@@ -3721,7 +3721,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Topographie - Série 2",
         "items": [
           {
@@ -3786,7 +3786,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Transmission - Série 1",
         "items": [
           {
@@ -3851,7 +3851,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Transmission - Série 2",
         "items": [
           {
@@ -3916,7 +3916,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "TBCA - Série 1",
         "items": [
           {
@@ -3981,7 +3981,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "TBCA - Série 2",
         "items": [
           {
@@ -4046,7 +4046,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 1",
         "items": [
           {
@@ -4101,7 +4101,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 2",
         "items": [
           {
@@ -4156,7 +4156,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 3",
         "items": [
           {
@@ -4211,7 +4211,7 @@ const MODULES = [
           }
         ]
       },
-{
+      {
         "title": "Synthèse - Test 4",
         "items": [
           {
@@ -4352,7 +4352,7 @@ const MODULES = [
               "éjecteur",
               "déflecteur"
             ]
-          },
+          }
         ]
       },
       {
@@ -4877,5 +4877,1936 @@ const MODULES = [
       "Technique de base du combattant aviateur",
       "Synthèse finale"
     ]
+  },
+  {
+    "id": "mod3",
+    "title": "Module 3",
+    "subtitle": "Reconversion, réserve et sanctions, notation et avancement, sous-officier et MTA, POIC, missions et procédés, actes élémentaires du combat",
+    "qcm": [
+      {
+        "title": "Série 1",
+        "questions": [
+          {
+            "module": "Reconversion",
+            "type": "true",
+            "options": [
+              "120 jours ouvrés",
+              "90 jours ouvrés",
+              "6 mois consécutifs",
+              "1 an"
+            ],
+            "correct": 0,
+            "stem": "Quelle est la durée maximale du congé de reconversion (CR) ?"
+          },
+          {
+            "module": "Reconversion",
+            "type": "true",
+            "options": [
+              "2 ans",
+              "4 ans",
+              "6 ans",
+              "8 ans"
+            ],
+            "correct": 1,
+            "stem": "À partir de combien d'années de services effectifs un militaire peut-il prétendre au CR ?"
+          },
+          {
+            "module": "Reconversion",
+            "type": "false",
+            "options": [
+              "Le CR peut être fractionné.",
+              "La décision d'agrément du CR est une prérogative de la DRH-AAE.",
+              "Le CCR a une durée maximale de 120 jours ouvrés.",
+              "Le CCR n'est pas fractionnable."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Réserve",
+            "type": "true",
+            "options": [
+              "Percevoir une solde régulière",
+              "Diffuser l'esprit de Défense et renforcer le lien armées/société civile",
+              "Remplacer les militaires d'active en opération",
+              "Assurer le recrutement des sous-officiers"
+            ],
+            "correct": 1,
+            "stem": "Quel est le rôle principal de la réserve citoyenne de défense et de sécurité ?"
+          },
+          {
+            "module": "Réserve",
+            "type": "true",
+            "options": [
+              "16 ans",
+              "17 ans",
+              "18 ans",
+              "21 ans"
+            ],
+            "correct": 1,
+            "stem": "Quel âge minimum pour souscrire un engagement dans la réserve opérationnelle de premier niveau (RO1) ?"
+          },
+          {
+            "module": "Réserve",
+            "type": "true",
+            "options": [
+              "De 10 à 30 jours par an, pour 1 à 5 ans",
+              "De 30 à 60 jours par an, pour 2 ans",
+              "Un engagement à vie",
+              "De 5 à 10 jours par an, pour 6 mois"
+            ],
+            "correct": 0,
+            "stem": "Quelle est la durée d'un contrat RO1 ?"
+          },
+          {
+            "module": "Réserve",
+            "type": "true",
+            "options": [
+              "Des civils volontaires sans expérience militaire",
+              "Les ex-militaires d'active soumis à une obligation de disponibilité pendant 5 ans",
+              "Uniquement les officiers de réserve",
+              "Les anciens gendarmes"
+            ],
+            "correct": 1,
+            "stem": "Qui compose la réserve opérationnelle de deuxième niveau (RO2) ?"
+          },
+          {
+            "module": "Récompenses et décorations",
+            "type": "false",
+            "options": [
+              "Les récompenses relèvent d'un acte de commandement.",
+              "Les récompenses peuvent être attribuées à titre individuel ou collectif.",
+              "Les citations sans croix ne peuvent jamais être décernées à titre posthume.",
+              "Les citations sans croix récompensent des actions comportant un risque aggravé ou des actes de courage."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Récompenses et décorations",
+            "type": "true",
+            "options": [
+              "La Légion d'Honneur",
+              "La Médaille Militaire",
+              "L'Ordre National du Mérite",
+              "La Croix de la Valeur Militaire"
+            ],
+            "correct": 0,
+            "stem": "Parmi les décorations françaises, laquelle est la plus élevée ?"
+          },
+          {
+            "module": "Récompenses et décorations",
+            "type": "true",
+            "options": [
+              "Aucune formalité particulière",
+              "Une autorisation préalable du cabinet du CEMAA",
+              "Une validation par la CRM",
+              "Un accord du ministre des Armées uniquement"
+            ],
+            "correct": 1,
+            "stem": "Le port des décorations étrangères est soumis à :"
+          },
+          {
+            "module": "Récompenses et décorations",
+            "type": "false",
+            "options": [
+              "Les décorations pendantes peuvent prendre la forme de cravates, de croix, d'étoiles ou de médaillon.",
+              "Les barrettes sont une représentation simplifiée des médailles pendantes.",
+              "L'ordre des barrettes se lit du bas-droite vers le haut-gauche.",
+              "Les fourragères sont des récompenses collectives portées par chaque militaire affecté à la formation."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Récompenses et décorations",
+            "type": "true",
+            "options": [
+              "Une récompense individuelle secrète",
+              "Une récompense collective attribuée à une formation, sous forme de tresses terminées par un ferret",
+              "Un grade honorifique",
+              "Une décoration étrangère"
+            ],
+            "correct": 1,
+            "stem": "Que matérialisent les fourragères ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 2",
+        "questions": [
+          {
+            "module": "Sanctions disciplinaires",
+            "type": "true",
+            "options": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "correct": 1,
+            "stem": "Combien de groupes distingue-t-on parmi les sanctions disciplinaires ?"
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "type": "true",
+            "options": [
+              "20 jours",
+              "30 jours",
+              "40 jours",
+              "60 jours"
+            ],
+            "correct": 2,
+            "stem": "Quelle est la durée maximale des arrêts pouvant être infligés par le ministre des Armées (CEMAA par délégation) ?"
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "type": "false",
+            "options": [
+              "L'autorité militaire de premier niveau peut infliger un avertissement.",
+              "L'autorité militaire de deuxième niveau peut infliger un blâme.",
+              "L'autorité militaire de premier niveau peut infliger des arrêts de 1 à 30 jours.",
+              "Le ministre des Armées peut infliger un blâme du ministre."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "type": "true",
+            "options": [
+              "Conseil d'enquête",
+              "Conseil de discipline",
+              "Conseil des prud'hommes",
+              "Conseil supérieur de la fonction militaire"
+            ],
+            "correct": 1,
+            "stem": "Les sanctions du 2e groupe sont prononcées après avis d'un :"
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "type": "true",
+            "options": [
+              "L'avertissement",
+              "L'exclusion temporaire de fonction",
+              "La radiation des cadres et la résiliation du contrat",
+              "La consigne"
+            ],
+            "correct": 2,
+            "stem": "Quelle sanction appartient au 3e groupe ?"
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "type": "false",
+            "options": [
+              "Les sanctions du 3e groupe sont prononcées après avis d'un conseil d'enquête.",
+              "Les sanctions disciplinaires peuvent toujours se cumuler entre elles sans restriction.",
+              "Le retrait d'emploi appartient au 3e groupe.",
+              "L'abaissement temporaire d'échelon appartient au 2e groupe."
+            ],
+            "correct": 1
+          },
+          {
+            "module": "Sanctions professionnelles",
+            "type": "true",
+            "options": [
+              "1 mois",
+              "6 mois",
+              "1 an",
+              "2 ans"
+            ],
+            "correct": 1,
+            "stem": "Le retrait total d'une qualification professionnelle est limité, s'il n'est pas définitif, à :"
+          },
+          {
+            "module": "Sanctions professionnelles",
+            "type": "true",
+            "options": [
+              "6 mois",
+              "1 an",
+              "2 ans",
+              "3 ans"
+            ],
+            "correct": 1,
+            "stem": "Le retrait partiel d'une qualification professionnelle est limité, s'il n'est pas définitif, à :"
+          },
+          {
+            "module": "Sanctions professionnelles",
+            "type": "true",
+            "options": [
+              "Une sanction disciplinaire du 1er groupe",
+              "Une mesure administrative conservatoire, sans caractère disciplinaire",
+              "Une récompense collective",
+              "Une sanction professionnelle définitive"
+            ],
+            "correct": 1,
+            "stem": "Qu'est-ce que la suspension de fonctions ?"
+          },
+          {
+            "module": "Voies de recours",
+            "type": "true",
+            "options": [
+              "15 jours",
+              "1 mois",
+              "2 mois",
+              "6 mois"
+            ],
+            "correct": 2,
+            "stem": "Dans quel délai un recours contre une sanction disciplinaire ou professionnelle peut-il être formulé ?"
+          },
+          {
+            "module": "Voies de recours",
+            "type": "false",
+            "options": [
+              "L'exercice du droit de recours n'est pas suspensif de l'exécution de la décision contestée.",
+              "Les décisions prises en recours peuvent aggraver la sanction du militaire.",
+              "La CRM est chargée d'examiner les recours formulés à l'encontre d'actes relatifs à la situation personnelle du militaire.",
+              "La saisine de la CRM est un préalable obligatoire à l'exercice d'un recours contentieux."
+            ],
+            "correct": 1
+          },
+          {
+            "module": "Voies de recours",
+            "type": "true",
+            "options": [
+              "Le tribunal judiciaire",
+              "Le tribunal administratif ou le Conseil d'État",
+              "Le tribunal correctionnel",
+              "La Cour de cassation"
+            ],
+            "correct": 1,
+            "stem": "Quel tribunal est compétent pour un recours contentieux formé par excès de pouvoir ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 3",
+        "questions": [
+          {
+            "module": "Reconversion",
+            "type": "true",
+            "options": [
+              "L'antenne défense mobilité",
+              "Le CAEP",
+              "La commission des recours des militaires",
+              "Le conseil de discipline"
+            ],
+            "correct": 0,
+            "stem": "Quel organisme peut renseigner le militaire souhaitant se reconvertir dans le secteur civil ?"
+          },
+          {
+            "module": "Sanctions professionnelles",
+            "type": "true",
+            "options": [
+              "Le conseil de discipline",
+              "Le conseil d'enquête",
+              "Le conseil d'examen des faits professionnels",
+              "La CAEP"
+            ],
+            "correct": 2,
+            "stem": "Une sanction professionnelle liée au retrait de qualification est infligée après consultation de quel organisme ?"
+          },
+          {
+            "module": "Réserve",
+            "type": "false",
+            "options": [
+              "La réserve citoyenne est constituée de volontaires agréés auprès des autorités militaires.",
+              "La RO2 concerne des civils sans lien antérieur avec les armées.",
+              "La RO1 est un contrat rémunéré.",
+              "Le CCR est réservé aux formations dont le CR de 120 jours ne suffit pas."
+            ],
+            "correct": 1
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Le passeport du combattant",
+              "Le bulletin de notation annuelle (BNA)",
+              "Le tableau d'avancement",
+              "Le livret matricule"
+            ],
+            "correct": 1,
+            "stem": "Sur quel support principal la notation annuelle est-elle transcrite ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Du 1er janvier au 31 décembre",
+              "Du 1er juin N-1 au 31 mai N",
+              "Du 1er septembre N-1 au 31 août N",
+              "Du 1er avril N-1 au 31 mars N"
+            ],
+            "correct": 1,
+            "stem": "Quelle est la période de notation ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "60 jours",
+              "90 jours",
+              "120 jours",
+              "180 jours"
+            ],
+            "correct": 2,
+            "stem": "Quelle est la présence effective minimale requise pour être noté ?"
+          },
+          {
+            "module": "Notation",
+            "type": "false",
+            "options": [
+              "Le millésime est l'année civile au cours de laquelle la notation est attribuée puis communiquée.",
+              "La communication de la notation au 1er degré est autorisée à compter du 1er avril de l'année N.",
+              "La communication de la notation au 2e degré est autorisée à compter du 1er juin de l'année N.",
+              "La notation ne comporte qu'un seul degré."
+            ],
+            "correct": 3
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Le commandant de formation administrative",
+              "Le commandant d'unité",
+              "Le CEMAAE",
+              "Le ministre des Armées"
+            ],
+            "correct": 1,
+            "stem": "Qui est en général le notateur au 1er degré (ANPD) ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Le commandant d'unité",
+              "Le commandant de formation administrative",
+              "Le chef de section",
+              "Le président de la CRM"
+            ],
+            "correct": 1,
+            "stem": "Qui est en général le notateur au 2e degré (ANSD) ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "3 jours",
+              "5 jours",
+              "8 jours",
+              "15 jours"
+            ],
+            "correct": 2,
+            "stem": "Combien de jours francs de délai de réflexion l'ANSD respecte-t-il avant de noter ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "14",
+              "28",
+              "42",
+              "50"
+            ],
+            "correct": 2,
+            "stem": "Combien de critères comporte la grille de cotation du BNA ?"
+          },
+          {
+            "module": "Notation",
+            "type": "false",
+            "options": [
+              "La grille de cotation évalue les domaines militaire, professionnel/technique et savoir-être.",
+              "L'évaluation impose un maximum de 15 points forts.",
+              "L'évaluation impose un minimum de 3 points perfectibles.",
+              "La rubrique compétences techniques est obligatoire pour tous les militaires sans exception."
+            ],
+            "correct": 3
+          }
+        ]
+      },
+      {
+        "title": "Série 4",
+        "questions": [
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Tous les sous-officiers",
+              "Les MITHA et les sous-chefs de musique uniquement",
+              "Les seuls officiers",
+              "Le personnel navigant uniquement"
+            ],
+            "correct": 1,
+            "stem": "La rubrique compétences techniques du BNA est obligatoire pour :"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Non apprécié",
+              "Non admis",
+              "Non appliqué",
+              "Non attribué"
+            ],
+            "correct": 0,
+            "stem": "Que signifie la mention NA au contrôle de la condition physique du militaire (CCPM) dans le BNA ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Excellent (A)",
+              "Exceptionnel (XX)",
+              "Très bon (B)",
+              "Bon (C)"
+            ],
+            "correct": 1,
+            "stem": "Quelle est la plus haute appréciation de la Qualité des Services Rendus (QSR) ?"
+          },
+          {
+            "module": "Notation",
+            "type": "false",
+            "options": [
+              "L'ANPD reçoit personnellement chaque militaire pour un entretien individuel obligatoire.",
+              "Le noté dispose d'un délai de 8 jours francs pour formuler des observations sur sa notation au 1er degré.",
+              "Une photocopie du BNA original n'est jamais remise au militaire noté.",
+              "L'appréciation générale de l'ANPD est limitée à 500 caractères maximum."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "Il fixe la solde du militaire",
+              "Il apprécie l'aptitude aux emplois de niveau supérieur et le potentiel aux responsabilités de catégorie supérieure",
+              "Il décide de l'affectation future",
+              "Il signe le contrat d'engagement"
+            ],
+            "correct": 1,
+            "stem": "Que fait l'ANSD sur la partie inférieure du BNA ?"
+          },
+          {
+            "module": "Notation",
+            "type": "true",
+            "options": [
+              "1 mois",
+              "2 mois",
+              "3 mois",
+              "6 mois"
+            ],
+            "correct": 1,
+            "stem": "Dans quel délai un recours contre la notation définitive peut-il être formé auprès de la CRM ?"
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "type": "true",
+            "options": [
+              "Au choix uniquement",
+              "À l'ancienneté uniquement",
+              "Au choix ou à l'ancienneté",
+              "Par concours uniquement"
+            ],
+            "correct": 2,
+            "stem": "Pour les grades de sergent-chef et d'adjudant, l'avancement peut se faire :"
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "type": "true",
+            "options": [
+              "Au choix uniquement",
+              "À l'ancienneté uniquement",
+              "Au choix ou à l'ancienneté",
+              "Automatiquement à la date anniversaire"
+            ],
+            "correct": 0,
+            "stem": "Pour les grades d'adjudant-chef et de major, l'avancement se fait :"
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "type": "true",
+            "options": [
+              "10%",
+              "25%",
+              "50%",
+              "75%"
+            ],
+            "correct": 1,
+            "stem": "Quel pourcentage maximum de sous-officiers peut être promu au grade supérieur à l'ancienneté ?"
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "type": "true",
+            "options": [
+              "NA = RN x VE x Bonif",
+              "NA = RN + VE + Bonif",
+              "NA = RN - VE + Bonif",
+              "NA = VE + Bonif uniquement"
+            ],
+            "correct": 1,
+            "stem": "Comment se calcule la note d'avancement (NA) ?"
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "type": "true",
+            "options": [
+              "2 dernières années",
+              "4 dernières années",
+              "6 dernières années",
+              "8 dernières années"
+            ],
+            "correct": 1,
+            "stem": "La rubrique Notation (RN) prend en compte les notations chiffrées des combien de dernières années pour un sergent ?"
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "type": "true",
+            "options": [
+              "4",
+              "6",
+              "8",
+              "10"
+            ],
+            "correct": 2,
+            "stem": "Pour les grades autres que sergent, combien de dernières notations chiffrées entrent dans le calcul de la RN ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 5",
+        "questions": [
+          {
+            "module": "Avancement sous-officiers",
+            "type": "false",
+            "options": [
+              "Le tableau d'avancement (TA) ne concerne que l'avancement au choix.",
+              "La décision d'inscription au TA est prise par le CEMAAE.",
+              "Les promotions à l'ancienneté apparaissent sur le tableau d'avancement.",
+              "Les sous-officiers inscrits au TA le sont par corps, grade postulé, spécialité et ordre d'ancienneté de grade."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Avancement MTA",
+            "type": "true",
+            "options": [
+              "Le BET",
+              "Le CAET, avoir 2 ans d'ancienneté de service et un comportement irréprochable",
+              "Le BST",
+              "Le CCM"
+            ],
+            "correct": 1,
+            "stem": "Pour être nommé caporal, le MTA doit détenir :"
+          },
+          {
+            "module": "Avancement MTA",
+            "type": "true",
+            "options": [
+              "Le CAET uniquement",
+              "Le BST",
+              "Le brevet élémentaire de technicien (BET), avoir au moins 4 ans de service et 1 an au grade de caporal",
+              "Le CCM"
+            ],
+            "correct": 2,
+            "stem": "Pour être nommé caporal-chef, le MTA doit détenir :"
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "type": "true",
+            "options": [
+              "6 ans",
+              "9 ans",
+              "12 ans",
+              "15 ans"
+            ],
+            "correct": 1,
+            "stem": "Quelle est la durée du contrat initial d'un sous-officier spécialiste ab-initio ?"
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "type": "true",
+            "options": [
+              "3 mois, max 6 mois",
+              "6 mois, max 18 mois",
+              "1 an, max 2 ans",
+              "6 mois, non renouvelable"
+            ],
+            "correct": 1,
+            "stem": "Quelle est la durée de la période probatoire initiale d'un sous-officier, et sa durée maximale après prolongation ?"
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "type": "true",
+            "options": [
+              "Le CAM (certificat d'aptitude militaire)",
+              "Le CAET",
+              "Le BST",
+              "Le CCM"
+            ],
+            "correct": 0,
+            "stem": "Quel certificat sanctionne la formation militaire initiale du sous-officier ?"
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "type": "true",
+            "options": [
+              "3 mois",
+              "6 mois",
+              "1 an",
+              "2 ans"
+            ],
+            "correct": 1,
+            "stem": "Au bout de combien de temps d'affectation en unité le certificat élémentaire (CE) évolue-t-il vers le brevet élémentaire (BE) ?"
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "type": "false",
+            "options": [
+              "Le BE permet d'accéder à l'échelle de solde n°3.",
+              "Un sous-officier peut présenter le concours interne de l'École de l'Air et de l'Espace à partir de 3 ans de service.",
+              "Nul ne peut se présenter plus de 5 fois au concours interne de l'École de l'Air et de l'Espace.",
+              "La limite d'âge pour le corps des officiers de l'air est de 25 ans, portée à 27 ans pour un candidat déjà breveté PN."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Parcours PBS",
+            "type": "true",
+            "options": [
+              "Niveau 1",
+              "Niveau 2",
+              "Niveau 3",
+              "Niveau 5"
+            ],
+            "correct": 2,
+            "stem": "Pour entrer dans le Parcours vers le Brevet Supérieur (PBS), quel niveau minimum de CCPM faut-il détenir ?"
+          },
+          {
+            "module": "Parcours PBS",
+            "type": "true",
+            "options": [
+              "Le 1er janvier N et le 1er juin N",
+              "Le 1er octobre N et le 1er juin N+1",
+              "Le 1er septembre N et le 1er septembre N+1",
+              "Le 1er avril N et le 1er avril N+1"
+            ],
+            "correct": 1,
+            "stem": "Le PBS débute et se termine respectivement :"
+          },
+          {
+            "module": "Parcours PBS",
+            "type": "true",
+            "options": [
+              "N.PBS = N.QCM + N.CCPM + N.Tir",
+              "N.PBS = (N.QCM×5)+(N.CCPM×3)+(N.Tir×2)+B.PLS+B.JEUNE+N.EPPS",
+              "N.PBS = N.CCPM×5 uniquement",
+              "N.PBS = moyenne des notes obtenues en unité"
+            ],
+            "correct": 1,
+            "stem": "Comment se calcule la note finale du PBS (N.PBS) ?"
+          },
+          {
+            "module": "Parcours PBS",
+            "type": "true",
+            "options": [
+              "La N.CCPM",
+              "La N.QCM",
+              "L'ancienneté de grade",
+              "L'âge"
+            ],
+            "correct": 1,
+            "stem": "En cas d'ex aequo au classement du PBS, quel critère départage en premier lieu les candidats ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 6",
+        "questions": [
+          {
+            "module": "Parcours PBS",
+            "type": "false",
+            "options": [
+              "La commission CAEP se réunit au cours du mois de septembre de l'année N.",
+              "La commission CAEF se réunit au cours du mois de juin de l'année N+1.",
+              "Les candidats qui n'ont pas validé toutes les formations du PBS sont tout de même classés.",
+              "La DRH-AAE publie la liste des candidats autorisés à entrer dans le PBS."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Parcours PBS",
+            "type": "true",
+            "options": [
+              "SFE et SFP",
+              "CAEP et CAEF",
+              "PBS et CS",
+              "CAM et CE"
+            ],
+            "correct": 0,
+            "stem": "La formation complémentaire vers le Brevet Supérieur (BS) s'articule autour de deux stages : lesquels ?"
+          },
+          {
+            "module": "Parcours PBS",
+            "type": "true",
+            "options": [
+              "À Salon-de-Provence",
+              "À Rochefort",
+              "À Paris",
+              "À l'EFSOAAE"
+            ],
+            "correct": 1,
+            "stem": "Où se déroule le Stage de Formation à l'Encadrement (SFE) ?"
+          },
+          {
+            "module": "Sous-officier carrière",
+            "type": "true",
+            "options": [
+              "4 ans",
+              "6 ans",
+              "8 ans",
+              "10 ans"
+            ],
+            "correct": 1,
+            "stem": "À partir de combien d'années de services militaires effectifs un sous-officier peut-il accéder à l'état de sous-officier de carrière (SOC) ?"
+          },
+          {
+            "module": "Sous-officier carrière",
+            "type": "true",
+            "options": [
+              "Une réduction de solde",
+              "+10 points d'avancement",
+              "Une dispense de notation",
+              "Un accès automatique au grade de major"
+            ],
+            "correct": 1,
+            "stem": "Parmi les avantages du statut de sous-officier de carrière (SOC), on trouve :"
+          },
+          {
+            "module": "Sous-officier carrière",
+            "type": "true",
+            "options": [
+              "8 ans",
+              "10 ans",
+              "12 ans",
+              "15 ans"
+            ],
+            "correct": 2,
+            "stem": "À partir de combien d'années de service un sous-officier peut-il se voir attribuer le diplôme de qualification supérieure (DQS) ?"
+          },
+          {
+            "module": "Sous-officier carrière",
+            "type": "true",
+            "options": [
+              "20 ans",
+              "24 ans",
+              "27 ans",
+              "30 ans"
+            ],
+            "correct": 2,
+            "stem": "Quelle est la limite de durée des services d'un sous-officier sous contrat ?"
+          },
+          {
+            "module": "Sous-officier carrière",
+            "type": "true",
+            "options": [
+              "52 ans",
+              "58 ans",
+              "59 ans",
+              "62 ans"
+            ],
+            "correct": 2,
+            "stem": "Quelle est la limite d'âge du grade de major (personnel non navigant) ?"
+          },
+          {
+            "module": "MTA",
+            "type": "true",
+            "options": [
+              "Être de nationalité française, avoir fait la JDC, niveau 3e ou CAP, apte médicalement, entre 17 et 30 ans",
+              "Être titulaire du baccalauréat uniquement",
+              "Avoir plus de 21 ans et moins de 35 ans",
+              "Être déjà sous-officier de réserve"
+            ],
+            "correct": 0,
+            "stem": "Quelles sont les conditions générales de recrutement d'un MTA ?"
+          },
+          {
+            "module": "MTA",
+            "type": "true",
+            "options": [
+              "6 semaines, au CPOCAAE",
+              "3 mois, à l'EFSOAAE",
+              "2 semaines, en unité",
+              "1 an, à Rochefort"
+            ],
+            "correct": 0,
+            "stem": "Où se déroule la formation militaire élémentaire (FME) du MTA, et pendant combien de temps ?"
+          },
+          {
+            "module": "MTA",
+            "type": "true",
+            "options": [
+              "Le CAM",
+              "Le certificat d'aptitude à l'emploi de technicien (CAET)",
+              "Le BST",
+              "Le BE"
+            ],
+            "correct": 1,
+            "stem": "Quel certificat sanctionne la réussite à la FME puis à la FMEC ?"
+          },
+          {
+            "module": "MTA",
+            "type": "true",
+            "options": [
+              "1 à 6 ans d'ancienneté, moins de 30 ans, détenir le CAET",
+              "10 ans d'ancienneté minimum",
+              "Être titulaire du BST",
+              "Avoir plus de 35 ans"
+            ],
+            "correct": 0,
+            "stem": "La passerelle initiale permettant à un MTA d'accéder au statut de sous-officier requiert :"
+          }
+        ]
+      },
+      {
+        "title": "Série 7",
+        "questions": [
+          {
+            "module": "MTA",
+            "type": "true",
+            "options": [
+              "Entre la 1re et la 3e année",
+              "Entre la 5e et la 8e année",
+              "Entre la 10e et la 15e année",
+              "Entre la 20e et la 25e année"
+            ],
+            "correct": 1,
+            "stem": "Entre quelles années de service un MTA peut-il se présenter à la sélection de niveau 1 (SN1) ?"
+          },
+          {
+            "module": "MTA",
+            "type": "true",
+            "options": [
+              "2 et 5 ans d'ancienneté",
+              "8 et 16 ans d'ancienneté",
+              "20 et 25 ans d'ancienneté",
+              "Dès l'obtention du CAET"
+            ],
+            "correct": 1,
+            "stem": "La passerelle expérience, ouvrant droit au brevet supérieur de technicien (BST), est accessible au caporal-chef titulaire du BET entre :"
+          },
+          {
+            "module": "MTA",
+            "type": "false",
+            "options": [
+              "Le BST peut être attribué aux MTA atteignant 9 ans de services sous contrat.",
+              "Cette attribution peut être anticipée à 6 ans pour les MTA 341X qualifiés « belouga ».",
+              "La passerelle reconnaissance est accessible sur simple candidature, sans condition d'ancienneté.",
+              "La mobilité n'est pas obligatoire pour le MTA, sauf s'il remplit une fiche individuelle de souhait d'affectation (FISA)."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "POI et POIC",
+            "type": "true",
+            "options": [
+              "Formation, notation, avancement",
+              "L'entraînement individuel générique, l'entraînement individuel spécifique, l'évaluation",
+              "Le CCPM, le PBS, le TA",
+              "La primo-formation, le stage GRIFFON, le MCP"
+            ],
+            "correct": 1,
+            "stem": "Quelles sont les trois composantes de la préparation opérationnelle individuelle (POI) ?"
+          },
+          {
+            "module": "POI et POIC",
+            "type": "true",
+            "options": [
+              "Médicale, physique, opérationnelle",
+              "Physique, intellectuelle, morale",
+              "Technique, administrative, disciplinaire",
+              "Médicale, professionnelle, financière"
+            ],
+            "correct": 0,
+            "stem": "L'évaluation de la POI vérifie trois aptitudes : lesquelles ?"
+          },
+          {
+            "module": "POI et POIC",
+            "type": "true",
+            "options": [
+              "Un stage de sélection au PBS",
+              "Un stage qui met en condition avant un détachement SENTINELLE",
+              "Un stage de reconversion",
+              "Un stage de perfectionnement à l'anglais"
+            ],
+            "correct": 1,
+            "stem": "Qu'est-ce que le stage GRIFFON ?"
+          },
+          {
+            "module": "POI et POIC",
+            "type": "true",
+            "options": [
+              "Une pièce d'identité militaire",
+              "Un document permettant un suivi individualisé de la POI, sous la responsabilité du militaire",
+              "Un document réservé aux officiers",
+              "Une attestation de notation"
+            ],
+            "correct": 1,
+            "stem": "Qu'est-ce que le passeport du combattant ?"
+          },
+          {
+            "module": "POI et POIC",
+            "type": "false",
+            "options": [
+              "Le passeport du combattant comporte une partie POIC et une partie MCP.",
+              "La validation des modules POIC est prise en compte dans la validation du PBS.",
+              "La mise à jour du passeport du combattant est sous la responsabilité du commandant d'unité.",
+              "La POIC constitue le niveau socle de la préparation opérationnelle."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "POI et POIC",
+            "type": "true",
+            "options": [
+              "3",
+              "4",
+              "5",
+              "6"
+            ],
+            "correct": 2,
+            "stem": "Combien de domaines fondamentaux regroupe la POIC ?"
+          },
+          {
+            "module": "POI et POIC",
+            "type": "true",
+            "options": [
+              "3 jours",
+              "5 jours",
+              "10 jours",
+              "15 jours"
+            ],
+            "correct": 1,
+            "stem": "Quelle est la durée du stage de mise en condition avant projection (MCP) ?"
+          },
+          {
+            "module": "POI et POIC",
+            "type": "false",
+            "options": [
+              "Le stage MCP prépare le personnel avant projection sur les théâtres d'opérations extérieures.",
+              "Les fusiliers commandos et les pompiers sont concernés par le stage MCP au même titre que les autres spécialités.",
+              "Le stage MCP aborde notamment l'ISTC FAMAS/PA et le sauvetage au combat.",
+              "Le stage MCP aborde notamment le NRBC."
+            ],
+            "correct": 1
+          },
+          {
+            "module": "CCPM",
+            "type": "true",
+            "options": [
+              "Le renouvellement de contrat, la notation, la note d'avancement, l'intégration au PBS, l'attribution de primes",
+              "Uniquement pour l'attribution de primes",
+              "Uniquement pour l'avancement au choix",
+              "Le passage du concours de l'École de l'Air"
+            ],
+            "correct": 0,
+            "stem": "Pour quoi le CCPM est-il un élément décisif ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 8",
+        "questions": [
+          {
+            "module": "CCPM",
+            "type": "true",
+            "options": [
+              "Tous les 2 ans",
+              "Annuellement",
+              "Tous les 6 mois",
+              "Une seule fois en carrière"
+            ],
+            "correct": 1,
+            "stem": "À quelle fréquence le CCPM est-il effectué ?"
+          },
+          {
+            "module": "CCPM",
+            "type": "true",
+            "options": [
+              "Endurance cardio-respiratoire, aisance aquatique, capacité musculaire générale",
+              "Force, vitesse, souplesse",
+              "Tir, natation, course",
+              "Résistance au stress, agilité, équilibre"
+            ],
+            "correct": 0,
+            "stem": "Quelles sont les trois aptitudes physiques évaluées par le CCPG ?"
+          },
+          {
+            "module": "CCPM",
+            "type": "true",
+            "options": [
+              "20 points",
+              "40 points",
+              "60 points",
+              "100 points"
+            ],
+            "correct": 2,
+            "stem": "Combien de points maximum peut-on obtenir au total au CCPG ?"
+          },
+          {
+            "module": "CCPM",
+            "type": "true",
+            "options": [
+              "21 points",
+              "31 points",
+              "41 points",
+              "51 points"
+            ],
+            "correct": 1,
+            "stem": "À partir de combien de points un militaire est-il déclaré apte au CCPG ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "Situation, Mission, Exécution, Place du groupe, Place du chef",
+              "Sécurité, Mouvement, Engagement, Protection, Progression",
+              "Sûreté, Mission, Équipement, Position, Priorité",
+              "Situation, Mouvement, Équipe, Position, Plan"
+            ],
+            "correct": 0,
+            "stem": "Que signifie l'acronyme SMEPP utilisé pour l'ordre initial ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "La liste du matériel emporté",
+              "La formulation « Afin de… Je veux… »",
+              "Les horaires de rassemblement",
+              "Le nom du chef de groupe"
+            ],
+            "correct": 1,
+            "stem": "Dans l'ordre initial, que précise la partie « Mission » ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "Fixer la mission tactique",
+              "Se préparer sur le plan logistique pour ne rien oublier",
+              "Désigner le successeur du chef de groupe",
+              "Établir le compte rendu de fin de mission"
+            ],
+            "correct": 1,
+            "stem": "Quel est le but de l'ordre préparatoire ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "Personnel, Armement, Tenue, Radio, Alimentation, Camouflage, Divers, Rassemblement",
+              "Position, Appui, Tir, Repli, Attaque, Couverture, Défense, Repos",
+              "Patrouille, Arrêt, Tenue, Reconnaissance, Appui, Combat, Déplacement, Repli",
+              "Personnel, Arme, Transmission, Ravitaillement, Abri, Coordination, Délai, Retour"
+            ],
+            "correct": 0,
+            "stem": "Que signifie l'acronyme mnémotechnique PATRACDR ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "false",
+            "options": [
+              "La mission « Surveiller » a pour objet de déceler toute activité de l'ennemi pour alerter ou renseigner.",
+              "La mission « S'emparer de » consiste à s'assurer de la possession d'un point précis.",
+              "La mission « Couvrir » consiste toujours à occuper un point sans esprit de recul.",
+              "La mission « Appuyer » consiste à apporter une aide à une autre unité par le mouvement ou le feu."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "Surveiller",
+              "Tenir",
+              "Appuyer",
+              "S'emparer de"
+            ],
+            "correct": 1,
+            "stem": "Quelle mission consiste à occuper et défendre un point de terrain, sans esprit de recul et avec une notion de durée ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "La mise en place de l'appui",
+              "Le début de la patrouille",
+              "Le compte rendu final",
+              "Le repli du dispositif"
+            ],
+            "correct": 0,
+            "stem": "Dans la mission « S'emparer de », que représente le temps T1 ?"
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "La mise en place de l'appui",
+              "La mise en place de l'assaut",
+              "La reconnaissance de zone",
+              "Le rassemblement"
+            ],
+            "correct": 1,
+            "stem": "Dans la mission « S'emparer de », que représente le temps T2 ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 9",
+        "questions": [
+          {
+            "module": "Patrouille",
+            "type": "true",
+            "options": [
+              "Combiner temps d'observation et recherches discrètes pour renforcer la sûreté des amis et renseigner le chef",
+              "Détruire systématiquement l'ennemi rencontré",
+              "Remplacer l'ordre initial",
+              "Servir uniquement à l'entraînement au tir"
+            ],
+            "correct": 0,
+            "stem": "Quel est le but du procédé de la patrouille ?"
+          },
+          {
+            "module": "Patrouille",
+            "type": "true",
+            "options": [
+              "Point d'Observation et Point d'Écoute",
+              "Position Offensive et Position d'Étape",
+              "Plan d'Opération et Plan d'Engagement",
+              "Poste Ouvert et Poste Éloigné"
+            ],
+            "correct": 0,
+            "stem": "Lors d'une patrouille, que désignent les sigles PO et PE ?"
+          },
+          {
+            "module": "Patrouille",
+            "type": "false",
+            "options": [
+              "Le briefing du chef de groupe lors d'une patrouille se fait via un MOICP.",
+              "La patrouille se conclut par un compte rendu (CR) à l'issue de la mission.",
+              "Lors d'une patrouille, le déplacement ne doit jamais être adapté au niveau d'hostilité rencontré.",
+              "Le déplacement lors d'une patrouille débute via un DPIF puis un PIF."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Ordres et missions",
+            "type": "true",
+            "options": [
+              "3",
+              "4",
+              "5",
+              "6"
+            ],
+            "correct": 2,
+            "stem": "Combien de missions principales du groupe de combat sont présentées dans le fascicule ?"
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "true",
+            "options": [
+              "La colonne",
+              "La ligne",
+              "Le triangle base avant",
+              "Le losange"
+            ],
+            "correct": 0,
+            "stem": "Quelle formation de déplacement offre un mode de déplacement rapide mais rend vulnérable au tir de face ?"
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "true",
+            "options": [
+              "La colonne",
+              "La ligne",
+              "Le triangle base arrière",
+              "La patrouille"
+            ],
+            "correct": 1,
+            "stem": "Quelle formation offre la totalité de la puissance de feu dans la direction de marche, au prix d'un déplacement plus lent ?"
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "true",
+            "options": [
+              "Formation en Y",
+              "Formation en losange",
+              "Formation en T",
+              "Formation en X"
+            ],
+            "correct": 0,
+            "stem": "En équipe de 4, comment appelle-t-on la formation en triangle base avant ?"
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "true",
+            "options": [
+              "Formation en Y",
+              "Formation en losange",
+              "Formation en colonne",
+              "Formation en ligne"
+            ],
+            "correct": 1,
+            "stem": "En équipe de 4, comment appelle-t-on la formation en triangle base arrière ?"
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "false",
+            "options": [
+              "La formation en triangle base arrière privilégie la sûreté, avec le chef d'équipe le moins exposé.",
+              "La formation en colonne est plus lente que la formation en ligne.",
+              "Le déplacement simple de l'équipe suppose de donner une direction de marche et de fixer des points à atteindre.",
+              "Observer en permanence fait partie des composantes du déplacement."
+            ],
+            "correct": 1
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "true",
+            "options": [
+              "« Pour un bond… vers… », « Dans l'ordre », « Préparez-vous », « En avant »",
+              "« Halte », « Demi-tour », « En avant », « Stop »",
+              "« Attention », « Feu », « Cessez le feu »",
+              "« Rassemblement », « Formation », « Départ »"
+            ],
+            "correct": 0,
+            "stem": "Quel est le cadre d'ordre pour l'exécution d'un bond ?"
+          },
+          {
+            "module": "Déplacement et formations",
+            "type": "true",
+            "options": [
+              "À franchir un découvert",
+              "À ouvrir le feu",
+              "À se replier définitivement",
+              "À changer de mission"
+            ],
+            "correct": 0,
+            "stem": "À quoi sert le bond par équipe ?"
+          },
+          {
+            "module": "Appui mutuel",
+            "type": "true",
+            "options": [
+              "Une progression plus rapide",
+              "Un dispositif aligné, avec une gestion et une coordination plus simples",
+              "Une meilleure discrétion",
+              "Une consommation de munitions réduite"
+            ],
+            "correct": 1,
+            "stem": "Quel est l'avantage de l'appui mutuel en tiroir ?"
+          }
+        ]
+      },
+      {
+        "title": "Série 10",
+        "questions": [
+          {
+            "module": "Appui mutuel",
+            "type": "true",
+            "options": [
+              "Une progression plus lente",
+              "Un dispositif non aligné, avec une gestion et une coordination plus difficiles",
+              "Une vulnérabilité accrue au tir de face uniquement",
+              "Aucun inconvénient"
+            ],
+            "correct": 1,
+            "stem": "Quel est l'inconvénient de l'appui mutuel en perroquet ?"
+          },
+          {
+            "module": "Appui mutuel",
+            "type": "true",
+            "options": [
+              "Monter sur l'objectif uniquement",
+              "Rompre le contact",
+              "Se poster en arrêt long",
+              "Franchir un carrefour en T"
+            ],
+            "correct": 1,
+            "stem": "L'appui mutuel en perroquet est majoritairement employé pour :"
+          },
+          {
+            "module": "Appui mutuel",
+            "type": "false",
+            "options": [
+              "Le franchissement d'un carrefour en X, en T ou d'une coupure est considéré comme un passage à risque.",
+              "Ce franchissement doit obligatoirement être réalisé par appui mutuel.",
+              "Le trinôme de tête n'intervient jamais dans la sécurisation d'un carrefour.",
+              "Une attention particulière doit être apportée au respect des 4 règles ISTC lors du franchissement."
+            ],
+            "correct": 2
+          },
+          {
+            "module": "Appui mutuel",
+            "type": "true",
+            "options": [
+              "Le trinôme de tête",
+              "Le chef d'équipe seul",
+              "Le dernier combattant",
+              "Le CDG en retrait"
+            ],
+            "correct": 0,
+            "stem": "Dans le franchissement d'un carrefour, quel élément gère la sécurisation avant que l'ensemble du groupe ne le franchisse ?"
+          },
+          {
+            "module": "Se poster",
+            "type": "true",
+            "options": [
+              "Faire un point topo, un compte rendu de transmission, un point d'observation et d'écoute, une pause de combat",
+              "Changer complètement de mission",
+              "Attendre un ravitaillement en munitions uniquement",
+              "Se replier définitivement"
+            ],
+            "correct": 0,
+            "stem": "Pour quelles raisons l'équipe effectue-t-elle un arrêt court ?"
+          },
+          {
+            "module": "Se poster",
+            "type": "true",
+            "options": [
+              "Le FFH",
+              "Le ZMS",
+              "Le PATRACDR",
+              "Le SMEPP"
+            ],
+            "correct": 0,
+            "stem": "Quel dispositif sommaire le chef d'équipe déploie-t-il lors d'un arrêt court ?"
+          },
+          {
+            "module": "Se poster",
+            "type": "true",
+            "options": [
+              "Le FFH",
+              "Le ZMS",
+              "Le PIF",
+              "Le DPIF"
+            ],
+            "correct": 1,
+            "stem": "Lors d'un arrêt long, quel dispositif sommaire est jeté en premier lieu ?"
+          },
+          {
+            "module": "Se poster",
+            "type": "true",
+            "options": [
+              "En plaçant individuellement chaque combattant (PMSPCP)",
+              "En donnant l'ordre de repli",
+              "En regroupant toute l'équipe en colonne serrée",
+              "En supprimant toute observation"
+            ],
+            "correct": 0,
+            "stem": "Lors d'un arrêt long, comment le chef d'équipe améliore-t-il ensuite son dispositif ?"
+          },
+          {
+            "module": "Utiliser ses armes",
+            "type": "true",
+            "options": [
+              "Analyser l'objectif, en apprécier la distance, adapter son tir en gérant sa consommation, ouvrir le feu de façon graduelle et judicieuse",
+              "Tirer en continu sans interruption",
+              "Ignorer la consommation de munitions",
+              "Attendre systématiquement l'ordre du CDG avant toute analyse"
+            ],
+            "correct": 0,
+            "stem": "Que doit être capable de faire le combattant lorsqu'il utilise ses armes ?"
+          },
+          {
+            "module": "Utiliser ses armes",
+            "type": "true",
+            "options": [
+              "La désignation des objectifs et le contrôle de la consommation des munitions",
+              "Uniquement la météo",
+              "Le respect de la tenue réglementaire",
+              "La rédaction du compte rendu final"
+            ],
+            "correct": 0,
+            "stem": "Sur quoi le chef d'équipe veille-t-il en permanence lors de l'utilisation des armes ?"
+          },
+          {
+            "module": "Utiliser ses armes",
+            "type": "true",
+            "options": [
+              "Consommation, Objectif, Feu",
+              "Commandement, Ordre, Formation",
+              "Contrôle, Observation, Feu",
+              "Cadence, Objectif, Frappe"
+            ],
+            "correct": 0,
+            "stem": "Que signifie l'acronyme COF pour le tir au FAMAS ?"
+          },
+          {
+            "module": "Utiliser ses armes",
+            "type": "false",
+            "options": [
+              "Le « C » du COF désigne la consommation, en nombre de chargeurs le plus souvent.",
+              "Le « O » du COF désigne l'objectif, désigné sur le terrain en précisant si possible les distances.",
+              "Le « F » du COF désigne le feu, qui peut être immédiat, à mon commandement ou à votre initiative.",
+              "L'IST-C ne concerne que le tir au pistolet automatique, jamais le FAMAS."
+            ],
+            "correct": 3
+          }
+        ]
+      }
+    ],
+    "qcr": [
+      {
+        "title": "Série 1",
+        "items": [
+          {
+            "module": "Reconversion",
+            "q": "Combien de jours ouvrés maximum dure le congé de reconversion (CR) ?",
+            "a": "120 jours ouvrés."
+          },
+          {
+            "module": "Reconversion",
+            "q": "À partir de quelle ancienneté de service un militaire peut-il bénéficier du CR ?",
+            "a": "4 années de services effectifs."
+          },
+          {
+            "module": "Reconversion",
+            "q": "Quelle est la durée maximale du congé complémentaire de reconversion (CCR) ?",
+            "a": "6 mois consécutifs, non fractionnable."
+          },
+          {
+            "module": "Réserve",
+            "q": "Quels sont les deux types de réserve ?",
+            "a": "La réserve citoyenne de défense et de sécurité, et la réserve opérationnelle."
+          },
+          {
+            "module": "Réserve",
+            "q": "Quelle est la durée d'engagement d'un contrat RO1 ?",
+            "a": "De 1 à 5 ans, renouvelable, pour 10 à 30 jours par an."
+          },
+          {
+            "module": "Réserve",
+            "q": "Qui compose la réserve opérationnelle de 2e niveau (RO2) ?",
+            "a": "Les ex-militaires d'active soumis à une obligation de disponibilité pendant les 5 ans suivant leur départ."
+          },
+          {
+            "module": "Récompenses et décorations",
+            "q": "Quelle décoration est la plus élevée de l'ordre protocolaire français ?",
+            "a": "La Légion d'Honneur."
+          },
+          {
+            "module": "Récompenses et décorations",
+            "q": "Qu'est-ce qu'une citation sans croix ?",
+            "a": "Une récompense décernée pour des actions comportant un risque aggravé ou des actes de courage et de dévouement, pouvant être attribuée à titre posthume."
+          }
+        ]
+      },
+      {
+        "title": "Série 2",
+        "items": [
+          {
+            "module": "Récompenses et décorations",
+            "q": "Quelles sont les 4 formes que peuvent prendre les décorations pendantes ?",
+            "a": "Cravates, croix, étoiles, médaillon (rond)."
+          },
+          {
+            "module": "Récompenses et décorations",
+            "q": "Comment se lit l'ordre des barrettes de décorations ?",
+            "a": "Du haut à gauche jusqu'au bas à droite, selon l'ordre protocolaire."
+          },
+          {
+            "module": "Récompenses et décorations",
+            "q": "Qu'est-ce qu'une fourragère ?",
+            "a": "Une récompense collective attribuée à une formation, matérialisée par des tresses de couleur terminées par un ferret."
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "q": "Quelles sont les sanctions du 1er groupe pouvant être infligées par l'autorité militaire de 1er niveau ?",
+            "a": "Avertissement, consigne (1 à 20 tours), réprimande, arrêts (1 à 20 jours)."
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "q": "Après avis de quel conseil les sanctions du 2e groupe sont-elles prononcées pour les militaires non-officiers ?",
+            "a": "Après avis d'un conseil de discipline."
+          },
+          {
+            "module": "Sanctions disciplinaires",
+            "q": "Citez les deux sanctions du 3e groupe.",
+            "a": "Le retrait d'emploi ; la radiation des cadres et la résiliation du contrat."
+          },
+          {
+            "module": "Sanctions professionnelles",
+            "q": "Qu'est-ce que la suspension de fonctions ?",
+            "a": "Une mesure administrative conservatoire, sans caractère disciplinaire, qui écarte momentanément le militaire de toutes fonctions."
+          },
+          {
+            "module": "Voies de recours",
+            "q": "Dans quel délai un militaire peut-il exercer un recours contre une sanction disciplinaire ou professionnelle ?",
+            "a": "2 mois à compter de la notification."
+          }
+        ]
+      },
+      {
+        "title": "Série 3",
+        "items": [
+          {
+            "module": "Voies de recours",
+            "q": "Quel est le préalable obligatoire à l'exercice d'un recours contentieux relatif à une décision personnelle ?",
+            "a": "La saisine de la commission des recours des militaires (CRM)."
+          },
+          {
+            "module": "Voies de recours",
+            "q": "Devant quelle juridiction s'exerce le recours contentieux pour excès de pouvoir ?",
+            "a": "Le tribunal administratif ou le Conseil d'État."
+          },
+          {
+            "module": "Notation",
+            "q": "Sur quel document la notation annuelle est-elle principalement transcrite ?",
+            "a": "Le bulletin de notation annuelle (BNA)."
+          },
+          {
+            "module": "Notation",
+            "q": "Quelle est la période de notation (dates) ?",
+            "a": "Du 1er juin N-1 au 31 mai N."
+          },
+          {
+            "module": "Notation",
+            "q": "Quelle présence minimale est requise pour être noté durant la période ?",
+            "a": "Au moins 120 jours en position d'activité."
+          },
+          {
+            "module": "Notation",
+            "q": "Qui est, en règle générale, le notateur au 1er degré (ANPD) ?",
+            "a": "Le commandant d'unité."
+          },
+          {
+            "module": "Notation",
+            "q": "Qui est, en règle générale, le notateur au 2e degré (ANSD) ?",
+            "a": "Le commandant de formation administrative."
+          },
+          {
+            "module": "Notation",
+            "q": "Combien de critères comporte la grille de cotation du BNA, et quelles sont les règles associées ?",
+            "a": "42 critères, avec un maximum de 15 points forts et un minimum de 3 points perfectibles."
+          }
+        ]
+      },
+      {
+        "title": "Série 4",
+        "items": [
+          {
+            "module": "Notation",
+            "q": "Pour quel personnel la rubrique compétences techniques du BNA est-elle obligatoire ?",
+            "a": "Les MITHA et les militaires du corps des sous-chefs de musique."
+          },
+          {
+            "module": "Notation",
+            "q": "Que représente la Qualité des Services Rendus (QSR) et quelle est sa mention la plus haute ?",
+            "a": "L'appréciation globale du mérite, du potentiel et des services rendus ; sa mention la plus haute est Exceptionnel (XX)."
+          },
+          {
+            "module": "Notation",
+            "q": "Combien de temps le militaire noté dispose-t-il pour formuler des observations après communication de sa notation au 1er degré ?",
+            "a": "8 jours francs."
+          },
+          {
+            "module": "Notation",
+            "q": "Que fait l'ANSD sur la partie inférieure du BNA ?",
+            "a": "Il apprécie l'aptitude aux emplois de niveau supérieur et le potentiel aux responsabilités de catégorie supérieure, et arrête le résultat annuel chiffré."
+          },
+          {
+            "module": "Notation",
+            "q": "Dans quel délai peut-on faire un recours contre la notation définitive ?",
+            "a": "2 mois à compter de la notification par l'ANSD, auprès de la commission des recours des militaires."
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "q": "Comment se calcule la note d'avancement (NA) des sous-officiers ?",
+            "a": "NA = RN (rubrique notation) + VE (valorisation de l'expérience) + Bonif (bonifications)."
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "q": "Quel pourcentage maximum de sous-officiers peut être promu au grade supérieur à l'ancienneté ?",
+            "a": "25% du nombre total de sous-officiers promus à ce grade la même année."
+          },
+          {
+            "module": "Avancement sous-officiers",
+            "q": "Qui décide de l'inscription au tableau d'avancement (TA) ?",
+            "a": "Le chef d'état-major de l'armée de l'air et de l'espace (CEMAAE), par délégation du ministre des Armées."
+          }
+        ]
+      },
+      {
+        "title": "Série 5",
+        "items": [
+          {
+            "module": "Avancement MTA",
+            "q": "Quelles conditions le MTA doit-il remplir pour être nommé caporal ?",
+            "a": "Détenir le CAET, avoir 2 ans d'ancienneté de service et un comportement militaire irréprochable."
+          },
+          {
+            "module": "Avancement MTA",
+            "q": "Quelles conditions le MTA doit-il remplir pour être nommé caporal-chef ?",
+            "a": "Détenir le brevet élémentaire de technicien (BET), avoir au moins 4 ans de service et 1 an au grade de caporal."
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "q": "Quelle est la durée du contrat initial d'un sous-officier spécialiste ab-initio ?",
+            "a": "9 ans (porte de sortie à 6 ans avec 1 an de préavis)."
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "q": "Quel certificat sanctionne la formation militaire initiale du sous-officier, et où est-elle dispensée ?",
+            "a": "Le certificat d'aptitude militaire (CAM), dispensé à l'EFSOAAE."
+          },
+          {
+            "module": "Sous-officier spécialiste",
+            "q": "Au bout de combien de temps le certificat élémentaire (CE) devient-il le brevet élémentaire (BE) ?",
+            "a": "6 mois d'affectation en unité, si le militaire donne satisfaction."
+          },
+          {
+            "module": "Parcours PBS",
+            "q": "Quelles conditions générales doit remplir un sous-officier pour entrer dans le PBS ?",
+            "a": "Être volontaire, détenir au moins le niveau 3 du CCPM, avoir une notation non conservée sur les 3 dernières années, et détenir le BE depuis 2 à 10 ans."
+          },
+          {
+            "module": "Parcours PBS",
+            "q": "Quand se réunit la commission d'autorisation à entrer dans le parcours (CAEP) ?",
+            "a": "Au cours du mois de septembre de l'année N."
+          },
+          {
+            "module": "Parcours PBS",
+            "q": "Sur quelle période se déroule le PBS ?",
+            "a": "Du 1er octobre N au 1er juin N+1."
+          }
+        ]
+      },
+      {
+        "title": "Série 6",
+        "items": [
+          {
+            "module": "Parcours PBS",
+            "q": "Quels sont les deux stages qui composent la formation complémentaire vers le Brevet Supérieur (BS) ?",
+            "a": "Le Stage de Formation à l'Encadrement (SFE, à Rochefort) et le Stage de Formation Professionnel de perfectionnement (SFP)."
+          },
+          {
+            "module": "Sous-officier carrière",
+            "q": "À partir de combien d'années de service peut-on accéder au statut de sous-officier de carrière (SOC), et quels avantages procure-t-il ?",
+            "a": "Dès 6 ans de service ; avantages : accès à la carrière longue, limite d'âge plus élevée, +10 points d'avancement."
+          },
+          {
+            "module": "Sous-officier carrière",
+            "q": "À partir de combien d'années de service le diplôme de qualification supérieure (DQS) peut-il être attribué ?",
+            "a": "12 ans de service, avec le BS détenu depuis au moins 4 ans."
+          },
+          {
+            "module": "Sous-officier carrière",
+            "q": "Quelle est la limite de durée des services d'un sous-officier sous contrat ?",
+            "a": "27 ans."
+          },
+          {
+            "module": "MTA",
+            "q": "Quelles sont les conditions générales de recrutement d'un MTA ?",
+            "a": "Nationalité française, droits civiques, journée défense citoyenneté (JDC) effectuée, scolarité jusqu'en 3e ou CAP, aptitude médicale, entre 17 et 30 ans à la signature du contrat."
+          },
+          {
+            "module": "MTA",
+            "q": "Quelle est la durée de la formation militaire élémentaire (FME) du MTA, et où se déroule-t-elle ?",
+            "a": "6 semaines, au Centre de préparation opérationnelle du combattant de l'armée de l'Air et de l'Espace (CPOCAAE)."
+          },
+          {
+            "module": "MTA",
+            "q": "Quel certificat obtient le MTA à l'issue de la FME et de la FMEC ?",
+            "a": "Le certificat d'aptitude à l'emploi de technicien (CAET)."
+          },
+          {
+            "module": "MTA",
+            "q": "Quelles conditions permettent à un MTA de bénéficier de la passerelle initiale vers le statut de sous-officier ?",
+            "a": "Totaliser entre 1 et 6 ans d'ancienneté de services, avoir moins de 30 ans et détenir le CAET."
+          }
+        ]
+      },
+      {
+        "title": "Série 7",
+        "items": [
+          {
+            "module": "MTA",
+            "q": "Entre quelles années de service un MTA peut-il se présenter à la sélection de niveau 1 (SN1), et qu'obtient-il en cas de réussite ?",
+            "a": "Entre la 5e et la 8e année de service ; il obtient le certificat élémentaire de technicien (CET), puis le brevet élémentaire de technicien (BET) après 3 mois de parrainage."
+          },
+          {
+            "module": "MTA",
+            "q": "À partir de combien d'années de service le brevet supérieur de technicien (BST) peut-il être attribué à un MTA, et quelle exception existe ?",
+            "a": "9 ans de service ; anticipé à 6 ans pour les MTA 341X qualifiés « belouga »."
+          },
+          {
+            "module": "POI et POIC",
+            "q": "Quelles sont les trois composantes de la préparation opérationnelle individuelle (POI) ?",
+            "a": "L'entraînement individuel générique, l'entraînement individuel spécifique, et l'évaluation."
+          },
+          {
+            "module": "POI et POIC",
+            "q": "Quelles sont les trois aptitudes vérifiées par l'évaluation de la POI ?",
+            "a": "L'aptitude médicale, l'aptitude physique et l'aptitude opérationnelle."
+          },
+          {
+            "module": "POI et POIC",
+            "q": "À quoi sert le stage GRIFFON ?",
+            "a": "À mettre en condition et préparer le personnel désigné avant un détachement SENTINELLE."
+          },
+          {
+            "module": "POI et POIC",
+            "q": "Qu'est-ce que le passeport du combattant ?",
+            "a": "Un document, sous la responsabilité du militaire, qui permet un suivi individualisé de la POI."
+          },
+          {
+            "module": "POI et POIC",
+            "q": "Combien de domaines fondamentaux regroupe la POIC, niveau socle du passeport du combattant ?",
+            "a": "5 domaines : sécurité, aptitude physique, entraînement physique et militaire + entraînement au combat, coopération interalliée, préparation à l'engagement."
+          },
+          {
+            "module": "POI et POIC",
+            "q": "Quelle est la durée du stage de mise en condition avant projection (MCP) et à qui est-il destiné ?",
+            "a": "5 jours, pour le personnel avant projection sur les théâtres d'opérations extérieures (hors pompiers, fusiliers commandos, cynotechniciens et personnel navigant)."
+          }
+        ]
+      },
+      {
+        "title": "Série 8",
+        "items": [
+          {
+            "module": "CCPM",
+            "q": "Pourquoi le CCPM est-il important dans le parcours du militaire ?",
+            "a": "Il est décisif pour le renouvellement de contrat, l'établissement de la notation, le calcul de la note d'avancement, l'intégration au PBS et l'attribution de primes."
+          },
+          {
+            "module": "CCPM",
+            "q": "À partir de combien de points sur 60 un militaire est-il déclaré apte au CCPG ?",
+            "a": "31 points minimum."
+          },
+          {
+            "module": "Ordres et missions",
+            "q": "Que signifie l'acronyme SMEPP (structure de l'ordre initial) ?",
+            "a": "Situation, Mission, Exécution, Place du groupe dans le dispositif, Place du chef de groupe."
+          },
+          {
+            "module": "Ordres et missions",
+            "q": "À quoi sert l'ordre préparatoire, et quel est son mnémotechnique ?",
+            "a": "À se préparer sur le plan logistique pour ne rien oublier ; son mnémotechnique est PATRACDR (Personnel, Armement, Tenue, Radio, Alimentation, Camouflage, Divers, Rassemblement)."
+          },
+          {
+            "module": "Ordres et missions",
+            "q": "Quelle est la définition de la mission « Surveiller » ?",
+            "a": "Déceler toute activité de l'ennemi en un point, sur une direction ou dans une zone, dans le but d'alerter ou de renseigner."
+          },
+          {
+            "module": "Ordres et missions",
+            "q": "Quelle est la définition de la mission « S'emparer de » ?",
+            "a": "S'assurer de la possession d'un point précis en détruisant, en capturant ou en chassant l'ennemi qui peut l'occuper."
+          },
+          {
+            "module": "Ordres et missions",
+            "q": "Quelle est la définition de la mission « Tenir » ?",
+            "a": "Occuper et défendre un point ou un espace de terrain, sans esprit de recul, avec une notion de durée."
+          },
+          {
+            "module": "Ordres et missions",
+            "q": "Dans la mission « S'emparer de », que se passe-t-il aux temps T1, T2 et T3 ?",
+            "a": "T1 : mise en place de l'appui ; T2 : mise en place de l'assaut ; T3 : s'emparer du point (coordination appui-assaut)."
+          }
+        ]
+      },
+      {
+        "title": "Série 9",
+        "items": [
+          {
+            "module": "Patrouille",
+            "q": "Quel est le but du procédé de la patrouille ?",
+            "a": "Se porter dans une zone donnée en combinant observation et recherches discrètes, pour renforcer la sûreté des amis et renseigner le chef."
+          },
+          {
+            "module": "Patrouille",
+            "q": "Comment se termine une patrouille ?",
+            "a": "Par un compte rendu (CR) à l'issue de la patrouille."
+          },
+          {
+            "module": "Déplacement et formations",
+            "q": "Quelle formation de déplacement offre un mode rapide mais vulnérable au tir de face ?",
+            "a": "La colonne."
+          },
+          {
+            "module": "Déplacement et formations",
+            "q": "Quelle formation offre la totalité de la puissance de feu dans la direction de marche ?",
+            "a": "La formation en ligne."
+          },
+          {
+            "module": "Déplacement et formations",
+            "q": "Comment appelle-t-on la formation en triangle base avant pour une équipe de 4 ?",
+            "a": "La formation en Y."
+          },
+          {
+            "module": "Déplacement et formations",
+            "q": "Comment appelle-t-on la formation en triangle base arrière pour une équipe de 4 ?",
+            "a": "La formation en losange."
+          },
+          {
+            "module": "Déplacement et formations",
+            "q": "Quel est le cadre d'ordre pour l'exécution d'un bond ?",
+            "a": "« Pour un bond » (de l'équipe, homme par homme), « vers… », « Dans l'ordre » (éventuellement), « Préparez-vous », « En avant »."
+          },
+          {
+            "module": "Appui mutuel",
+            "q": "Quel est l'avantage et l'inconvénient de l'appui mutuel en tiroir ?",
+            "a": "Avantage : dispositif aligné, gestion et coordination plus simples. Inconvénient : progression plus lente."
+          }
+        ]
+      },
+      {
+        "title": "Série 10",
+        "items": [
+          {
+            "module": "Appui mutuel",
+            "q": "Quel est l'avantage et l'inconvénient de l'appui mutuel en perroquet ?",
+            "a": "Avantage : progression plus rapide. Inconvénient : dispositif non aligné, gestion et coordination plus difficiles."
+          },
+          {
+            "module": "Appui mutuel",
+            "q": "Comment doit être franchi un carrefour en X, en T ou une coupure ?",
+            "a": "C'est un passage à risque qui doit obligatoirement être franchi par appui mutuel adapté à la situation et au terrain."
+          },
+          {
+            "module": "Appui mutuel",
+            "q": "Quel élément de l'équipe sécurise le carrefour avant que le groupe ne le franchisse ?",
+            "a": "Le trinôme de tête, qui ouvre puis referme la porte."
+          },
+          {
+            "module": "Se poster",
+            "q": "Pour quelles raisons l'équipe effectue-t-elle un arrêt court, et quel dispositif est déployé ?",
+            "a": "Pour faire un point topo, un compte rendu, un point d'observation/écoute ou une pause de combat ; le chef d'équipe déploie un dispositif sommaire de sauvegarde (FFH)."
+          },
+          {
+            "module": "Se poster",
+            "q": "Comment se déroule un arrêt long ?",
+            "a": "Le chef d'équipe jette d'abord un dispositif sommaire (ZMS) pour la sauvegarde immédiate, puis améliore son dispositif en plaçant individuellement chaque combattant (PMSPCP)."
+          },
+          {
+            "module": "Utiliser ses armes",
+            "q": "Que doit être capable de faire le combattant dans l'utilisation de ses armes ?",
+            "a": "Analyser l'objectif, en apprécier la distance, adapter son tir en gérant sa consommation, et ouvrir le feu de façon graduelle et judicieuse."
+          },
+          {
+            "module": "Utiliser ses armes",
+            "q": "Sur quoi le chef d'équipe veille-t-il en permanence concernant l'armement ?",
+            "a": "La désignation des objectifs et le contrôle de la consommation des munitions."
+          },
+          {
+            "module": "Utiliser ses armes",
+            "q": "Que signifie l'acronyme COF utilisé pour le tir au FAMAS ?",
+            "a": "Consommation (nombre de chargeurs), Objectif (désigné sur le terrain), Feu (immédiat, à mon commandement, ou à votre initiative)."
+          }
+        ]
+      }
+    ],
+    "trou": [],
+    "schema": [],
+    "parts": []
   }
 ];
